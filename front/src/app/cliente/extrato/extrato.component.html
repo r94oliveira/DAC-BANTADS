@@ -1,0 +1,94 @@
+<div fxLayout="column" fxLayoutAlign="center center" class="container-alterar">
+  <div fxLayout="column" fxLayoutAlign="center center" class="container-cabecalho">
+    <div class="titulo">Consultar extrato</div>
+    <button mat-stroked-button class="voltar" routerLink="/cliente/home">
+      voltar
+    </button>
+  </div>
+
+  <div fxLayout="row" fxLayoutAlign="center center" class="container-formulario">
+    <form fxFlex="100%" fxLayout="column" fxLayoutAlign="center center">
+      <div fxLayout="row" fxLayoutAlign="space-between center" class="container-dates">
+        <div fxLayout="row" fxLayoutAlign="center center" class="container-inputs date">
+          <mat-form-field appearance="fill">
+            <mat-label>Data inicial da consulta: </mat-label>
+            <input matInput  />
+            <mat-hint>DD/MM/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix></mat-datepicker-toggle>
+            <mat-datepicker ></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="center center" class="container-inputs date">
+          <mat-form-field appearance="fill">
+            <mat-label>Data final da consulta: </mat-label>
+            <input matInput  />
+            <mat-hint>DD/MM/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix ></mat-datepicker-toggle>
+            <mat-datepicker></mat-datepicker>
+          </mat-form-field>
+        </div>
+      </div>
+      <button mat-raised-button color="primary">
+        Confirmar transferência
+      </button>
+    </form>
+  </div>
+
+  <div fxLayout="column" fxLayoutAlign="center center" class="container-extrato">
+    <table mat-table class="mat-elevation-z8 tabela-extrato">
+      <ng-container matColumnDef="dataHora">
+        <th mat-header-cell class="alinhar-text">
+          Data/Hora
+        </th>
+        <td mat-cell class="alinhar-text">
+          Data e Hora
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="operacao">
+        <th mat-header-cell class="alinhar-text">Operação</th>
+        <td mat-cell  class="alinhar-text">
+          <div >Depósito</div>
+          <div >Saque</div>
+          <div >Transferência</div>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="cliente">
+        <th mat-header-cell class="alinhar-text">Cliente</th>
+        <td mat-cell  class="alinhar-text">
+          <div >
+            Nome -> 
+          </div>
+          <div >
+            id -> Nome
+          </div>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="valor">
+        <th mat-header-cell class="alinhar-text">Valor</th>
+        <td mat-cell  class="alinhar-text color-blue">
+          <div>
+            <span > - </span>
+          </div>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="saldo">
+        <th mat-header-cell class="alinhar-text">
+          Saldo após operação
+        </th>
+        <td mat-cell class="alinhar-text">
+          Saldo
+        </td>
+      </ng-container>
+
+      <tr mat-header-row ></tr>
+      <tr mat-row ></tr>
+    </table>
+    <button mat-raised-button color="primary" >
+      Voltar tela intervalo extrato
+    </button>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<div fxLayout="column" fxLayoutAlign="center center" class="container-alterar">
+  <div fxLayout="column" fxLayoutAlign="center center" class="container-cabecalho">
+      <div class="titulo">Realizar Depósito</div>
+      <button mat-stroked-button class="voltar" routerLink="/cliente/home">Voltar</button>
+  </div>
+
+  <div fxLayout="row" fxLayoutAlign="center center" class="container-formulario">
+      <form fxFlex="100%" fxLayout="column" fxLayoutAlign="center center" >
+          <div fxLayout="row" fxLayoutAlign="start center" class="container-inputs">
+              <p>Informe o valor do depósito: </p>
+              <mat-form-field class="input-deposito">
+                  <input matInput #deposito placeholder="Deposito valor (R$)" name="deposito" 
+                  formControlName="deposito" currencyMask/>
+              </mat-form-field>
+          </div>
+          <button mat-raised-button color="primary">
+              Confirmar Depósito
+          </button>
+      </form>
+  </div>
+        
+</div>
