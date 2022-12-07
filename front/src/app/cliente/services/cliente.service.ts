@@ -48,7 +48,7 @@ export class ClienteService {
   }
 
   depositar(usuario: Usuario): void {
-    
+    console.log("depositar")
   }
 }
 
