@@ -1,16 +1,22 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { HomeComponent } from './home/home.component';
+import { CommonModule } from "@angular/common";
+import { NgModule } from "@angular/core";
+import { FormsModule } from "@angular/forms";
+import { RouterModule } from "@angular/router";
+import { AlterarComponent } from "./alterar/alterar.component";
+import { ClienteService } from "./services";
+
 
 @NgModule({
   declarations: [
-    HomeComponent
+    AlterarComponent
   ],
   imports: [
     CommonModule,
+    RouterModule,
+    FormsModule
   ],
-  exports: [
-    HomeComponent
+  providers: [
+    ClienteService
   ]
-})
-export class ClienteModule { }
+  })
+  export class ClienteModule { }
