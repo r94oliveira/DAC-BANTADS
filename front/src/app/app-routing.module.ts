@@ -1,17 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AlterarComponent } from './cliente/alterar/alterar.component';
-import { DepositarComponent } from './cliente/depositar/depositar.component';
-import { ExtratoComponent } from './cliente/extrato/extrato.component';
-import { HomeComponent } from './cliente/home/home.component';
-import { SaqueComponent } from './cliente/saque/saque.component';
-import { TransferenciaComponent } from './cliente/transferencia/transferencia.component';
+
+import { AlterarComponent } from './cliente';
+import { DepositarComponent } from './cliente';
+import { ExtratoComponent } from './cliente';
+import { HomeComponent } from './cliente';
+import { SaqueComponent } from './cliente';
+import { TransferenciaComponent } from './cliente';
 
 const routes: Routes = [
   // rotas cliente
   {
     path: '',
-    component: HomeComponent
+    component: HomeComponent,
+    pathMatch: 'full' 
   },
   {
     path: 'cliente',
