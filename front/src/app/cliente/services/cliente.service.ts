@@ -46,5 +46,9 @@ export class ClienteService {
     usuarios = usuarios.filter( usuario => usuario.id !== id );
     localStorage[LS_CHAVE] = JSON.stringify(usuarios);
   }
+
+  depositar(usuario: Usuario): void {
+    
+  }
 }
 
