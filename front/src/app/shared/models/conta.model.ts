@@ -6,7 +6,6 @@ export class Conta {
     public limite?: number,
     public ativo?: boolean,
     public saldo?: number,
-    public idGerente?: number,
-    public salarioCliente?: number    
+    public idGerente?: number   
   ) {}
 }

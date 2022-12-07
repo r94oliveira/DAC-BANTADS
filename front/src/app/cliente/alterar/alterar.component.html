@@ -35,10 +35,10 @@
 
        
         <div class="form-group">
-            <label for="salario">Salário: </label>
-            <input type="text" class="form-control" id="salario" name="salario" [(ngModel)]="conta.salario" #salario="ngModel"
+            <label for="salarioCliente">Salário: </label>
+            <input type="text" class="form-control" id="salarioCliente" name="salarioCliente" [(ngModel)]="usuario.salarioCliente" #salarioCliente="ngModel"
             required>
-            <div *ngIf="salario.errors && (salario.dirty || salario.touched)" class="alert alert-danger">
+            <div *ngIf="salarioCliente.errors && (salarioCliente.dirty || salarioCliente.touched)" class="alert alert-danger">
                 <div [hidden]="!nome.errors?.['required']"> Digite o salário. </div>
             </div>
         </div>

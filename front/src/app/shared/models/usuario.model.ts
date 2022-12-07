@@ -12,6 +12,7 @@ export class Usuario {
     public cep?: string,
     public rua?: string,
     public numero?: number,
-    public complemento?: string
+    public complemento?: string,
+    public salarioCliente?: number 
   ) {}
 }
