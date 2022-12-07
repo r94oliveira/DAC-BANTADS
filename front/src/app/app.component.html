@@ -1,2 +1,38 @@
-<app-navbar></app-navbar>
-<router-outlet></router-outlet>
+<div class="conteiner-fluid">
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <a class="navbar-brand nav-link ms-3" href="#" routerLink="/pessoas">
+      <i class="fa fa-user-edit"></i> {{ title }}
+    </a>
+    <div class="navbar-collapse collapsed justify-content-between" id="navbarContent">
+      <ul class="navbar-nav mr-auto ms-3">
+        <li class="nav-item">
+          <a class="nav-link" href="#" routerLink="/clientes/home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" routerLink="/clientes/alterar">Alterar</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" routerLink="/clientes/depositar">Depositar</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" routerLink="/clientes/saque">Sacar</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" routerLink="/clientes/transferencia">Transferir</a>
+        </li>
+
+      </ul>
+      <ul class="navbar-nav ml-auto me-3">
+        <li class="nav-item">
+          <a class="nav-link me-3" href="#">Logout</a>
+        </li>
+        <li class="nav-item">
+          <p class="navbar-text mb-0 text-white">
+            <i class="fa fa-user"></i> Cliente
+          </p>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <router-outlet></router-outlet>
+</div>

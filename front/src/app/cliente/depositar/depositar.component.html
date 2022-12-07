@@ -15,13 +15,12 @@
       </div>
 
       <div class="form-group mt-5 d-flex justify-content-center">
-        <button type="button" class="btn btn-primary me-3" (click)="depositar()" [disabled]="!formDepositar.form.valid">
-          <i class="fa fa-save" aria-hidden="true"></i> Confirmar Depósito
-        </button>
-
-        <a class="btn btn-secondary" [routerLink]="['/cliente/home']">
+        <a class="btn btn-secondary me-3" [routerLink]="['/cliente/home']">
           <i class="fa fa-arrow-left" aria-hidden="true"></i> Voltar
         </a>
+        <button type="button" class="btn btn-primary" (click)="depositar()" [disabled]="!formDepositar.form.valid">
+          <i class="fa fa-save" aria-hidden="true"></i> Confirmar Depósito
+        </button>        
       </div>
     </form>
   </div>
