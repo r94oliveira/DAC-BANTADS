@@ -1,4 +1,4 @@
-export class User {
+export class Usuario {
   constructor(
     public id?: number,
     public nome?: string,
@@ -7,8 +7,8 @@ export class User {
     public cargo?: string,
     public cpf?: string,
     public telefone?: string,
-    public estado?: number,
-    public cidade?: number,
+    public estado?: string,
+    public cidade?: string,
     public cep?: string,
     public rua?: string,
     public numero?: number,
