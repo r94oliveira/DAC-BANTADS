@@ -11,6 +11,7 @@ import { ExtratoComponent } from "./extrato/extrato.component";
 import { HomeComponent } from "./home/home.component";
 import { SaqueComponent } from './saque/saque.component';
 import { TransferenciaComponent } from './transferencia/transferencia.component';
+import { NumericoDirective } from "../shared/directives/numerico-directive.directive";
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { TransferenciaComponent } from './transferencia/transferencia.component'
     ExtratoComponent,
     HomeComponent,
     SaqueComponent,
-    TransferenciaComponent    
+    TransferenciaComponent,
+    NumericoDirective
   ],
   imports: [
     CommonModule,
