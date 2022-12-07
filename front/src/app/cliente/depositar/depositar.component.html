@@ -1,25 +1,28 @@
-<!-- end custom
+<div class="container d-flex justify-content-center mt-3">
+  <div class="well container__content">
+    <h1>Realizar Depósito</h1>
+    
+    <form #formDepositar="ngForm">
+      <p>Informe o valor do depósito: </p>
 
-<div fxLayout="column" fxLayoutAlign="center center" class="container-alterar">
-  <div fxLayout="column" fxLayoutAlign="center center" class="container-cabecalho">
-      <div class="titulo">Realizar Depósito</div>
-      <button mat-stroked-button class="voltar" routerLink="/cliente/home">Voltar</button>
-  </div>
+      <div class="form-group">
+        <label for="salarioCliente">Valor: </label>
+        <input type="text" class="form-control mt-3" id="valorTransacao" name="valorTransacao"
+          [(ngModel)]="transacao.valorTransacao" #valorTransacao="ngModel" required>
+        <div *ngIf="valorTransacao.errors && (valorTransacao.dirty || valorTransacao.touched)" class="alert alert-danger">
+          <div [hidden]="!valorTransacao.errors?.['required']"> Digite o valor a ser depositado. </div>
+        </div>
+      </div>
 
-  <div fxLayout="row" fxLayoutAlign="center center" class="container-formulario">
-      <form fxFlex="100%" fxLayout="column" fxLayoutAlign="center center" >
-          <div fxLayout="row" fxLayoutAlign="start center" class="container-inputs">
-              <p>Informe o valor do depósito: </p>
-              <mat-form-field class="input-deposito">
-                  <input matInput #deposito placeholder="Deposito valor (R$)" name="deposito" 
-                  formControlName="deposito" currencyMask/>
-              </mat-form-field>
-          </div>
-          <button mat-raised-button color="primary">
-              Confirmar Depósito
-          </button>
-      </form>
+      <div class="form-group mt-5 d-flex justify-content-center">
+        <button type="button" class="btn btn-primary me-3" (click)="depositar()" [disabled]="!formDepositar.form.valid">
+          <i class="fa fa-save" aria-hidden="true"></i> Confirmar Depósito
+        </button>
+
+        <a class="btn btn-secondary" [routerLink]="['/cliente/home']">
+          <i class="fa fa-arrow-left" aria-hidden="true"></i> Voltar
+        </a>
+      </div>
+    </form>
   </div>
-        
 </div>
--->
