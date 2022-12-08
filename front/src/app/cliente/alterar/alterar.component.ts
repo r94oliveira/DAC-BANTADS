@@ -39,7 +39,7 @@ export class AlterarComponent implements OnInit {
     if (this.formAlterar.form.valid) {
       // Efetivamente atualiza a pessoa
       this.clienteService.alterar(this.usuario);
-      // Redireciona para /pessoas/listar
+      // Redireciona para /cliente/home
       this.router.navigate(['/cliente/home']);
     }
   }
