@@ -3,7 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { Transacao } from 'src/app/shared';
-import { TransferenciaService } from '../transferencia/services/transferencia.service';
+import { TransferenciaService } from '../transferencia';
 
 @Component({
   selector: 'app-saque',
