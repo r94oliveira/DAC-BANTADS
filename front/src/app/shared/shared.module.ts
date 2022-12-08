@@ -10,6 +10,9 @@ import { NumericoDirective } from './directives';
   ],
   imports: [
     CommonModule
+  ],
+  exports: [
+    NumericoDirective
   ]
 })
 export class SharedModule { }
