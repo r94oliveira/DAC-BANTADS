@@ -11,7 +11,8 @@ import { ExtratoComponent } from "./extrato/extrato.component";
 import { HomeComponent } from "./home/home.component";
 import { SaqueComponent } from './saque/saque.component';
 import { TransferenciaComponent } from './transferencia/transferencia.component';
-import { NumericoDirective } from "../shared/directives/numerico-directive.directive";
+
+import { SharedModule } from '../shared';
 
 
 @NgModule({
@@ -21,13 +22,13 @@ import { NumericoDirective } from "../shared/directives/numerico-directive.direc
     ExtratoComponent,
     HomeComponent,
     SaqueComponent,
-    TransferenciaComponent,
-    NumericoDirective
+    TransferenciaComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    SharedModule
   ],
   providers: [
     ClienteService
