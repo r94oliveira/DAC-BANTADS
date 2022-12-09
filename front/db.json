@@ -1,0 +1,25 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "nome": "Luis",
+            "email": "luis",
+            "senha": "luis",
+            "cargo": "CLIENTE"
+        },
+        {
+            "id": 2,
+            "nome": "Letícia",
+            "email": "let",
+            "senha": "let",
+            "cargo": "GERENTE"
+        },
+        {
+            "id": 3,
+            "nome": "Katiana",
+            "email": "kat",
+            "senha": "kat",
+            "cargo": "ADMIN"
+        }
+    ]
+}
