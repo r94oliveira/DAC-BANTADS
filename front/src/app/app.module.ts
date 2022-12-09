@@ -12,6 +12,8 @@ import { ClienteModule } from './cliente/cliente.module';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { AuthModule } from './auth/auth.module';
+
 import { SharedModule } from './shared';
 
 @NgModule({
@@ -26,7 +28,8 @@ import { SharedModule } from './shared';
     NgbModule,
     NgSelectModule,
     HttpClientModule,
-    SharedModule
+    SharedModule,
+    AuthModule
   ],
   providers: [],
   bootstrap: [AppComponent],
