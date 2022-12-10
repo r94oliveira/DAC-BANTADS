@@ -17,9 +17,7 @@ import { AuthModule } from './auth/auth.module';
 import { SharedModule } from './shared';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -29,10 +27,10 @@ import { SharedModule } from './shared';
     NgSelectModule,
     HttpClientModule,
     SharedModule,
-    AuthModule
+    AuthModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class AppModule { }
+export class AppModule {}

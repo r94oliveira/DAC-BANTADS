@@ -1,54 +1,50 @@
 import { Injectable } from '@angular/core';
-import { Usuario } from 'src/app/shared';
+import { Cliente } from 'src/app/shared';
 
-const LS_CHAVE: string = "Usuarios";
+const LS_CHAVE: string = 'Clientes';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ClienteService {
+  constructor() {}
 
-  constructor() { }
-
-  listarTodos(): Usuario[] {
-    const usuarios = localStorage[LS_CHAVE];
-    return usuarios ? JSON.parse(usuarios) : [];
+  listarTodos(): Cliente[] {
+    const clientes = localStorage[LS_CHAVE];
+    return clientes ? JSON.parse(clientes) : [];
   }
 
-  inserir(usuario: Usuario) : void {
-    const usuarios = this.listarTodos();
-    usuario.id = new Date().getTime(); 
-    usuarios.push(usuario);
-    localStorage[LS_CHAVE] = JSON.stringify(usuarios);
+  inserir(cliente: Cliente): void {
+    const clientes = this.listarTodos();
+    cliente.id = new Date().getTime();
+    clientes.push(cliente);
+    localStorage[LS_CHAVE] = JSON.stringify(clientes);
   }
 
-  buscarPorId(id: number): Usuario | undefined {
-    const usuarios: Usuario[] = this.listarTodos();
-    return usuarios.find( usuario => usuario.id === id );
+  buscarPorId(id: number): Cliente | undefined {
+    const clientes: Cliente[] = this.listarTodos();
+    return clientes.find((cliente) => cliente.id === id);
   }
 
-  alterar(usuario: Usuario): void {
-    const usuarios: Usuario[] = this.listarTodos();
+  alterar(cliente: Cliente): void {
+    const clientes: Cliente[] = this.listarTodos();
 
-    usuarios.forEach(
-      (obj, index, objs) => {
-        if(usuario.id === obj.id){
-          objs[index] = usuario;
-        }
+    clientes.forEach((obj, index, objs) => {
+      if (cliente.id === obj.id) {
+        objs[index] = cliente;
       }
-    );
-    localStorage[LS_CHAVE] = JSON.stringify(usuarios);
+    });
+    localStorage[LS_CHAVE] = JSON.stringify(clientes);
   }
 
   remover(id: number): void {
-    let usuarios: Usuario[] = this.listarTodos();
+    let clientes: Cliente[] = this.listarTodos();
 
-    usuarios = usuarios.filter( usuario => usuario.id !== id );
-    localStorage[LS_CHAVE] = JSON.stringify(usuarios);
+    clientes = clientes.filter((cliente) => cliente.id !== id);
+    localStorage[LS_CHAVE] = JSON.stringify(clientes);
   }
 
-  depositar(usuario: Usuario): void {
-    console.log("depositar")
+  depositar(cliente: Cliente): void {
+    console.log('depositar');
   }
 }
-

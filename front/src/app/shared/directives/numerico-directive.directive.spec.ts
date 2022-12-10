@@ -1,8 +1,8 @@
-import { NumericoDirectiveDirective } from './numerico-directive.directive';
+import { NumericoDirective } from './numerico-directive.directive';
 
-describe('NumericoDirectiveDirective', () => {
+describe('NumericoDirective', () => {
   it('should create an instance', () => {
-    const directive = new NumericoDirectiveDirective();
+    const directive = new NumericoDirective();
     expect(directive).toBeTruthy();
   });
 });

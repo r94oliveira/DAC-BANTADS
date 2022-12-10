@@ -5,7 +5,13 @@
   role="alert"
 >
   {{ message }}
-  <a href="#" class="btn btn-sm btn-secondary" data-dismiss="alert" aria-label="close">&times;</a>
+  <a
+    href="#"
+    class="btn btn-sm btn-secondary"
+    data-dismiss="alert"
+    aria-label="close"
+    >&times;</a
+  >
 </div>
 <div class="well">
   <form #formLogin="ngForm">
@@ -24,7 +30,7 @@
         *ngIf="usuario.errors && (usuario.dirty || usuario.touched)"
         class="alert alert-danger"
       >
-        <div [hidden]="!usuario.errors?.['required']">Digite o usuário</div>
+        <div [hidden]="!usuario.errors['required']">Digite o usuário</div>
       </div>
     </div>
     <div class="form-group">
@@ -42,7 +48,7 @@
         *ngIf="senha.errors && (senha.dirty || senha.touched)"
         class="alert alert-danger"
       >
-        <div [hidden]="!senha.errors?.['required']">Digite a senha.</div>
+        <div [hidden]="!senha.errors['required']">Digite a senha.</div>
       </div>
     </div>
 

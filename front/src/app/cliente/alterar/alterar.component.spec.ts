@@ -8,9 +8,8 @@ describe('AlterarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AlterarComponent ]
-    })
-    .compileComponents();
+      declarations: [AlterarComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

@@ -8,11 +8,10 @@ import { TransferenciaService } from '../transferencia';
 @Component({
   selector: 'app-saque',
   templateUrl: './saque.component.html',
-  styleUrls: ['./saque.component.scss']
+  styleUrls: ['./saque.component.scss'],
 })
 export class SaqueComponent implements OnInit {
-
-  @ViewChild("formSacar") formSacar!: NgForm;
+  @ViewChild('formSacar') formSacar!: NgForm;
   transacao!: Transacao;
 
   constructor(
@@ -20,7 +19,7 @@ export class SaqueComponent implements OnInit {
     private transferenciaService: TransferenciaService,
     private route: ActivatedRoute,
     private router: Router
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.transacao = new Transacao();
@@ -33,5 +32,4 @@ export class SaqueComponent implements OnInit {
       this.router.navigate(['/cliente/home']);
     }
   }
-
 }
