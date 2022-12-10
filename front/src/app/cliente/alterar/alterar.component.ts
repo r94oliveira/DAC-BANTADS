@@ -26,12 +26,13 @@ export class AlterarComponent implements OnInit {
     let id = +this.route.snapshot.params['id'];
 
     // Com o id, obtém a pessoa
-    const res = this.clienteService.buscarPorId(id);
-    if (res !== undefined) {
-      this.cliente = res;
-    } else {
-      throw new Error('Cliente não encontrado: id = ' + id);
-    }
+    this.clienteService.buscarPorId(id).subscribe((res) => {
+      if (res) {
+        this.cliente = res;
+      } else {
+        throw new Error('Cliente não encontrado: id = ' + id);
+      }
+    });
   }
 
   alterar(): void {

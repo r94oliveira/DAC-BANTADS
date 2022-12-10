@@ -21,5 +21,53 @@
       "senha": "kat",
       "cargo": "ADMIN"
     }
+  ],
+
+  "clientes": [
+    {
+      "id": 1,
+      "nome": "Luis",
+      "email": "luis",
+      "cpf": "45578954623",
+      "telefone": "41984115877",
+      "salario": 2000,
+      "rua": "Rua Marechal Bonito",
+      "logradouro": "",
+      "numero": 375,
+      "complemento": "Casa 1",
+      "cep": "82944-598",
+      "cidade": "Curitiba",
+      "estado": "Paraná"
+    },
+    {
+      "id": 2,
+      "nome": "Letícia",
+      "email": "let",
+      "cpf": "45578954741",
+      "telefone": "41984115741",
+      "salario": 4000,
+      "rua": "Rua Marechal Bonito",
+      "logradouro": "",
+      "numero": 375,
+      "complemento": "Casa 2",
+      "cep": "82944-588",
+      "cidade": "Curitiba",
+      "estado": "Paraná"
+    },
+    {
+      "id": 3,
+      "nome": "Katiana",
+      "email": "kat",
+      "cpf": "45578954963",
+      "telefone": "41984115963",
+      "salario": 4000,
+      "rua": "Rua Marechal Bonito",
+      "logradouro": "",
+      "numero": 375,
+      "complemento": "Casa 3",
+      "cep": "82944-578",
+      "cidade": "Curitiba",
+      "estado": "Paraná"
+    }
   ]
 }
