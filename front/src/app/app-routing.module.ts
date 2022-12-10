@@ -5,18 +5,18 @@ import { ClienteRoutes } from './cliente/cliente-routing.module';
 
 const routes: Routes = [
   {
-    path : '',
+    path: '',
     redirectTo: 'login',
     pathMatch: 'full',
   },
   ...ClienteRoutes,
-  { path: "", redirectTo: "/login", pathMatch: "full" },
-  { path: "**", redirectTo: "/login", pathMatch: "full" },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: '**', redirectTo: '/login', pathMatch: 'full' },
   ...LoginRoutes,
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

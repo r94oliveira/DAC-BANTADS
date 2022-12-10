@@ -3,8 +3,15 @@
     <a class="navbar-brand nav-link ms-3" href="#" routerLink="">
       <i class="fa fa-user-edit"></i> {{ title }}
     </a>
-    <div class="navbar-collapse collapsed justify-content-between" id="navbarContent" *ngIf="usuarioLogado">
-      <ul class="navbar-nav mr-auto ms-3" *ngIf="usuarioLogado.cargo==='CLIENTE'">
+    <div
+      class="navbar-collapse collapsed justify-content-between"
+      id="navbarContent"
+      *ngIf="usuarioLogado"
+    >
+      <ul
+        class="navbar-nav mr-auto ms-3"
+        *ngIf="usuarioLogado.cargo === 'CLIENTE'"
+      >
         <li class="nav-item">
           <a class="nav-link" href="#" routerLink="/cliente/home">Home</a>
         </li>
@@ -12,17 +19,24 @@
           <a class="nav-link" href="#" routerLink="/cliente/alterar">Alterar</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#" routerLink="/cliente/depositar">Depositar</a>
+          <a class="nav-link" href="#" routerLink="/cliente/depositar"
+            >Depositar</a
+          >
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#" routerLink="/cliente/saque">Sacar</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#" routerLink="/cliente/transferencia">Transferir</a>
+          <a class="nav-link" href="#" routerLink="/cliente/transferencia"
+            >Transferir</a
+          >
         </li>
       </ul>
 
-      <ul class="navbar-nav mr-auto ms-3" *ngIf="usuarioLogado.cargo==='GERENTE'">
+      <ul
+        class="navbar-nav mr-auto ms-3"
+        *ngIf="usuarioLogado.cargo === 'GERENTE'"
+      >
         <li class="nav-item">
           <a class="nav-link" href="#" routerLink="/gerente/home">Home</a>
         </li>

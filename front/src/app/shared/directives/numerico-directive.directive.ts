@@ -3,17 +3,19 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Directive({
   selector: '[numerico]',
-  providers: [{
-    provide: NG_VALUE_ACCESSOR,
-    useExisting: NumericoDirective,
-    multi: true
-  }]
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: NumericoDirective,
+      multi: true,
+    },
+  ],
 })
 export class NumericoDirective implements ControlValueAccessor {
   onChange: any;
   onTouched: any;
 
-  constructor(private el: ElementRef) { }
+  constructor(private el: ElementRef) {}
 
   @HostListener('keyup', ['$event'])
   onKeyUp($event: any) {
@@ -27,15 +29,14 @@ export class NumericoDirective implements ControlValueAccessor {
   }
 
   registerOnChange(fn: any): void {
-      this.onChange = fn;
+    this.onChange = fn;
   }
 
   registerOnTouched(fn: any): void {
-      this.onTouched = fn;
+    this.onTouched = fn;
   }
 
   writeValue(obj: any): void {
     this.el.nativeElement.value = obj;
   }
-
 }

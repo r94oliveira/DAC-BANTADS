@@ -8,9 +8,8 @@ describe('SaqueComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SaqueComponent ]
-    })
-    .compileComponents();
+      declarations: [SaqueComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

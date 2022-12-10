@@ -1,4 +1,4 @@
-@use '@angular/material'as mat;
+@use "@angular/material" as mat;
 @include mat.core();
 
 $flexy-primary: (
@@ -39,13 +39,15 @@ $flexy-angular-accent: mat.define-palette($flexy-accent);
 
 $flexy-angular-warn: mat.define-palette($flexy-warn);
 
-$flexy-angular-theme: mat.define-light-theme((
-  color: (
-    primary: $flexy-angular-primary,
-    accent: $flexy-angular-accent,
-    warn: $flexy-angular-warn,
+$flexy-angular-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $flexy-angular-primary,
+      accent: $flexy-angular-accent,
+      warn: $flexy-angular-warn,
+    ),
   )
-));
+);
 
 html,
 body {
@@ -54,17 +56,18 @@ body {
 
 body {
   margin: 0;
-  font-family: 'DM Sans', sans-serif !important;
+  font-family: "DM Sans", sans-serif !important;
 }
 
 @include mat.all-component-themes($flexy-angular-theme);
 
-
-$my-custom-level: mat.define-typography-level($font-weight: 400,
+$my-custom-level: mat.define-typography-level(
+  $font-weight: 400,
   $font-size: 1rem,
 );
 
-$my-custom-typography: mat.define-typography-config($font-family: "'DM Sans', sans-serif",
+$my-custom-typography: mat.define-typography-config(
+  $font-family: "'DM Sans', sans-serif",
   $headline: mat.define-typography-level(40px, 1, 500),
   $title: mat.define-typography-level(32px, 1, 500),
   $subheading-2: mat.define-typography-level(24px, 1, 500),
@@ -73,18 +76,12 @@ $my-custom-typography: mat.define-typography-config($font-family: "'DM Sans', sa
 
 @include mat.core($my-custom-typography);
 
-
-
-
-
 // @=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@
 // Font Family
 // @=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap");
 
-$bodyfont: 'DM Sans',
-sans-serif;
-
+$bodyfont: "DM Sans", sans-serif;
 
 // @=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@
 // Colors
@@ -118,8 +115,6 @@ $dark-danger: #5d363a;
 $dark-warning: #655419;
 $dark-info: #425a61;
 $dark-success: #145242;
-
-
 
 // Borders
 $border-color: unset;
