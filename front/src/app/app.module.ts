@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { ClienteModule } from './cliente/cliente.module';
+import { GerenteModule } from './gerente/gerente.module';
 
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -23,6 +24,7 @@ import { SharedModule } from './shared';
     AppRoutingModule,
     BrowserAnimationsModule,
     ClienteModule,
+    GerenteModule,
     NgbModule,
     NgSelectModule,
     HttpClientModule,
