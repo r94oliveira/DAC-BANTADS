@@ -12,8 +12,6 @@ const routes: Routes = [
   },
   ...ClienteRoutes,
   ...GerenteRoutes,
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: '**', redirectTo: '/login', pathMatch: 'full' },
   ...LoginRoutes,
 ];
 

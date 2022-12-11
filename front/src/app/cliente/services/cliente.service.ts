@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { delay, Observable, take, tap } from 'rxjs';
+import { take, tap } from 'rxjs';
 import { Cliente } from 'src/app/shared';
 
 @Injectable({
@@ -12,12 +12,10 @@ export class ClienteService {
   constructor(private http: HttpClient) {}
 
   listarTodos() {
-    return this.http
-      .get<Cliente[]>(this.url)
-      .pipe(delay(2000), tap(console.log));
+    return this.http.get<Cliente[]>(this.url).pipe(tap(console.log));
   }
 
-  buscarPorId(id: number) {
+  buscarPorId(id: number | undefined) {
     return this.http.get<Cliente>(`${this.url}/${id}`).pipe(take(1));
   }
 
@@ -29,7 +27,7 @@ export class ClienteService {
     return this.http.put(`${this.url}/${cliente.id}`, cliente).pipe(take(1));
   }
 
-  remover(id: number) {
+  remover(id: number | undefined) {
     return this.http.delete(`${this.url}/${id}`).pipe(take(1));
   }
 
