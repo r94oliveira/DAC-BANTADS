@@ -8,9 +8,10 @@ import { SharedModule } from '../shared';
 import { GerenteService } from './services/gerente.service';
 
 import { HomeComponent } from './home/home.component';
+import { ModalRejeitarComponent } from './modal-rejeitar/modal-rejeitar.component';
 
 @NgModule({
-  declarations: [HomeComponent],
+  declarations: [HomeComponent, ModalRejeitarComponent],
   imports: [CommonModule, FormsModule, RouterModule, SharedModule],
   providers: [GerenteService],
 })

@@ -11,4 +11,12 @@ export const GerenteRoutes: Routes = [
       expectedRole: 'GERENTE',
     },
   },
+  {
+    path: 'gerente/home',
+    component: HomeComponent,
+    canActivate: [AuthGuard],
+    data: {
+      expectedRole: 'GERENTE',
+    },
+  },
 ];

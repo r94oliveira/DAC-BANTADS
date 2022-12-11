@@ -22,7 +22,6 @@
       "cargo": "ADMIN"
     }
   ],
-
   "clientes": [
     {
       "id": 1,
@@ -30,7 +29,7 @@
       "email": "luis",
       "cpf": "45578954623",
       "telefone": "41984115877",
-      "salario": 2000,
+      "salario": "2000",
       "rua": "Rua Marechal Bonito",
       "logradouro": "",
       "numero": 375,

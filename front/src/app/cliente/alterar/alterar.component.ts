@@ -39,7 +39,7 @@ export class AlterarComponent implements OnInit {
     // Verifica se o formulário é válido
     if (this.formAlterar.form.valid) {
       // Efetivamente atualiza a pessoa
-      this.clienteService.alterar(this.cliente);
+      this.clienteService.alterar(this.cliente).subscribe((res) => res);
       // Redireciona para /cliente/home
       this.router.navigate(['/cliente/home']);
     }

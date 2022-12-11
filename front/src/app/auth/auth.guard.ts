@@ -28,8 +28,8 @@ export class AuthGuard implements CanActivate {
 
     if (usuarioLogado) {
       if (
-        route.data?.['role'] &&
-        route.data?.['role'].indexOf(usuarioLogado.cargo) === -1
+        route.data?.['expectedRole'] &&
+        route.data?.['expectedRole'].indexOf(usuarioLogado.cargo) === -1
       ) {
         this.router.navigate(['/login'], {
           queryParams: { error: 'Proibido o acesso a ' + url },
