@@ -26,7 +26,7 @@ export class ClienteService {
   }
 
   alterar(cliente: Cliente) {
-    return this.http.put(`${this.url}/${cliente['id']}`, cliente).pipe(take(1));
+    return this.http.put(`${this.url}/${cliente.id}`, cliente).pipe(take(1));
   }
 
   remover(id: number) {
