@@ -2,71 +2,68 @@
   "users": [
     {
       "id": 1,
-      "nome": "Luis",
-      "email": "luis",
-      "senha": "luis",
-      "cargo": "CLIENTE"
-    },
-    {
-      "id": 2,
       "nome": "Letícia",
       "email": "let",
       "senha": "let",
       "cargo": "GERENTE"
-    },
-    {
-      "id": 3,
-      "nome": "Katiana",
-      "email": "kat",
-      "senha": "kat",
-      "cargo": "ADMIN"
     }
   ],
   "clientes": [
     {
-      "id": 1,
       "nome": "Luis",
       "email": "luis",
-      "cpf": "45578954623",
-      "telefone": "41984115877",
-      "salario": "2000",
-      "rua": "Rua Marechal Bonito",
-      "logradouro": "",
-      "numero": 375,
-      "complemento": "Casa 1",
-      "cep": "82944-598",
+      "cpf": "14578965412",
+      "telefone": "41975469855",
+      "salario": "3000",
+      "rua": "Rua Número 1",
+      "numero": "2",
+      "cep": "87544985",
       "cidade": "Curitiba",
-      "estado": "Paraná"
+      "estado": "Paraná",
+      "id": 1
     },
     {
-      "id": 2,
-      "nome": "Letícia",
-      "email": "let",
-      "cpf": "45578954741",
-      "telefone": "41984115741",
-      "salario": 4000,
-      "rua": "Rua Marechal Bonito",
-      "logradouro": "",
-      "numero": 375,
-      "complemento": "Casa 2",
-      "cep": "82944-588",
-      "cidade": "Curitiba",
-      "estado": "Paraná"
-    },
-    {
-      "id": 3,
       "nome": "Katiana",
       "email": "kat",
-      "cpf": "45578954963",
-      "telefone": "41984115963",
-      "salario": 4000,
-      "rua": "Rua Marechal Bonito",
-      "logradouro": "",
-      "numero": 375,
-      "complemento": "Casa 3",
-      "cep": "82944-578",
+      "cpf": "45789654125",
+      "telefone": "41984575899",
+      "salario": "3000",
+      "rua": "Rua Número 2",
+      "numero": "1",
+      "cep": "47896587",
       "cidade": "Curitiba",
-      "estado": "Paraná"
+      "estado": "Paraná",
+      "id": 2
+    }
+  ],
+  "contas": [
+    {
+      "idCliente": 1,
+      "dataCriacao": "2022-12-11T20:04:11.339Z",
+      "limite": 1500,
+      "ativo": false,
+      "saldo": 0,
+      "idGerente": 1,
+      "id": 1
+    },
+    {
+      "idCliente": 2,
+      "dataCriacao": "2022-12-11T20:49:00.580Z",
+      "limite": 1500,
+      "ativo": false,
+      "saldo": 0,
+      "idGerente": 1,
+      "id": 2
+    }
+  ],
+  "gerentes": [
+    {
+      "id": 1,
+      "nome": "Letícia",
+      "email": "let",
+      "cpf": "14578985647",
+      "telefone": "41987456258",
+      "numeroClientes": 2
     }
   ]
 }

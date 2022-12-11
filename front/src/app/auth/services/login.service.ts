@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { tap } from 'rxjs';
-import { Usuario, Login } from 'src/app/shared';
+import { take, tap } from 'rxjs';
+import { Usuario } from 'src/app/shared';
 
 const LS_CHAVE: string = 'usuarioLogado';
 
@@ -26,7 +26,11 @@ export class LoginService {
     delete localStorage[LS_CHAVE];
   }
 
-  login(login: Login) {
+  login() {
     return this.http.get(this.url).pipe(tap((res) => res));
+  }
+
+  inserir(usuario: Usuario) {
+    return this.http.post(this.url, usuario).pipe(take(1));
   }
 }

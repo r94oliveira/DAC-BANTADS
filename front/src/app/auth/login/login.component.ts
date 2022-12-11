@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
   logar(): void {
     this.loading = true;
     if (this.formLogin.form.valid) {
-      this.loginService.login(this.login).subscribe((usuarios) => {
+      this.loginService.login().subscribe((usuarios) => {
         if (usuarios != null) {
           let usuario = Object.values(usuarios).find(
             (usu) =>
