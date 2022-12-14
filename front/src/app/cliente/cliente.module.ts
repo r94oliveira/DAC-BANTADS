@@ -23,7 +23,7 @@ import { SharedModule } from '../shared';
     SaqueComponent,
     TransferenciaComponent,
   ],
-  imports: [CommonModule, RouterModule, FormsModule, SharedModule],
+  imports: [CommonModule, FormsModule, RouterModule, SharedModule],
   providers: [ClienteService],
 })
 export class ClienteModule {}
