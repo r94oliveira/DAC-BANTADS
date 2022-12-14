@@ -19,6 +19,10 @@ export class ClienteService {
     return this.http.get<Cliente>(`${this.url}/${id}`).pipe(take(1));
   }
 
+  buscarPorEmail(email: string | undefined) {
+    return this.http.get<Cliente>(`${this.url}?email=${email}`).pipe(take(1));
+  }
+
   inserir(cliente: Cliente) {
     return this.http.post(this.url, cliente).pipe(take(1));
   }
