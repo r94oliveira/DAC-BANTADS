@@ -6,6 +6,13 @@
       "email": "let",
       "senha": "let",
       "cargo": "GERENTE"
+    },
+    {
+      "nome": "Luis",
+      "email": "luis",
+      "senha": "1671054616742",
+      "cargo": "CLIENTE",
+      "id": 2
     }
   ],
   "clientes": [
@@ -41,7 +48,7 @@
       "idCliente": 1,
       "dataCriacao": "2022-12-11T20:04:11.339Z",
       "limite": 1500,
-      "ativo": false,
+      "ativo": true,
       "saldo": 0,
       "idGerente": 1,
       "id": 1
@@ -63,7 +70,7 @@
       "email": "let",
       "cpf": "14578985647",
       "telefone": "41987456258",
-      "numeroClientes": 2
+      "numeroClientes": 1
     }
   ]
 }

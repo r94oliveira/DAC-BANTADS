@@ -1,16 +1,16 @@
 <div class="container d-flex justify-content-center mt-3">
   <div class="well container__content">
-    <h1>Bem-vindo(a), Cliente</h1>
+    <h1>Bem-vindo(a), {{ cliente.nome }}</h1>
 
     <div class="d-flex justify-content-evenly">
       <div class="container">
-        <p>Saldo atual: R$ saldo</p>
+        <p>Saldo atual: R$ {{ conta.saldo }}</p>
       </div>
     </div>
 
     <div class="d-flex justify-content-evenly">
       <div class="container">
-        <p>Conta administrada pelo gerente: Razer</p>
+        <p>Conta administrada pelo gerente: {{ gerente.nome }}</p>
       </div>
     </div>
 
