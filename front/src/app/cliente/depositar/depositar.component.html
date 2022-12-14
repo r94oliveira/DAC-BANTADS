@@ -7,22 +7,12 @@
 
       <div class="form-group">
         <label for="salarioCliente">Valor: </label>
-        <input
-          type="text"
-          class="form-control mt-3"
-          id="valorTransacao"
-          name="valorTransacao"
-          [(ngModel)]="transacao.valorTransacao"
-          #valorTransacao="ngModel"
-          required
-        />
-        <div
-          *ngIf="
+        <input type="text" class="form-control mt-3" id="valorTransacao" name="valorTransacao"
+          [(ngModel)]="transacao.valorTransacao" #valorTransacao="ngModel" required />
+        <div *ngIf="
             valorTransacao.errors &&
             (valorTransacao.dirty || valorTransacao.touched)
-          "
-          class="alert alert-danger"
-        >
+          " class="alert alert-danger">
           <div [hidden]="!valorTransacao.errors['required']">
             Digite o valor a ser depositado.
           </div>
@@ -30,15 +20,10 @@
       </div>
 
       <div class="form-group mt-5 d-flex justify-content-center">
-        <a class="btn btn-secondary me-3" [routerLink]="['/cliente/home']">
+        <a class="btn btn-secondary me-3" href="#" routerLink="/cliente">
           <i class="fa fa-arrow-left" aria-hidden="true"></i> Voltar
         </a>
-        <button
-          type="button"
-          class="btn btn-primary"
-          (click)="depositar()"
-          [disabled]="!formDepositar.form.valid"
-        >
+        <button type="button" class="btn btn-primary" (click)="depositar()" [disabled]="!formDepositar.form.valid">
           <i class="fa fa-save" aria-hidden="true"></i> Confirmar Depósito
         </button>
       </div>
