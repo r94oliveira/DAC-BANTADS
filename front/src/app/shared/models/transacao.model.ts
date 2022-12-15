@@ -4,7 +4,7 @@ export class Transacao {
     public idCliente?: number,
     public tipoTransacao?: string,
     public valorTransacao?: number,
-    public destinatario?: string,
+    public destinatario?: number,
     public saldo?: number,
     public data?: number
   ) {}

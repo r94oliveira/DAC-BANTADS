@@ -1,43 +1,37 @@
-<!--
+<div class="container d-flex justify-content-center mt-3">
+  <div class="well container__content">
+    <h1>Realizar Transferência</h1>
 
-  <div fxLayout="column" fxLayoutAlign="center center" class="container-alterar">
-  <div fxLayout="column" fxLayoutAlign="center center" class="container-cabecalho">
-    <div class="titulo">Realizar Transferência</div>
-    <button mat-stroked-button class="voltar" routerLink="/cliente/home">
-      Voltar
-    </button>
-  </div>
+    <form #formTransferir="ngForm">
+      <p>Informe a conta para a qual deseja realizar a transferência e o valor:</p>
 
-  <div fxLayout="row" fxLayoutAlign="center center" class="container-formulario">
-    <form fxFlex="100%" fxLayout="column" fxLayoutAlign="center center">
-      <div fxLayout="row" fxLayoutAlign="start center" class="container-inputs">
-        <p>Informe o número da conta destino:</p>
-        <mat-form-field class="input-deposito">
-          <input matInput type="number" placeholder="Informe número da conta" name="contaTransferencia"
-            formControlName="contaTransferencia" />
-        </mat-form-field>
-      </div>
-      <div fxLayout="row" fxLayoutAlign="start center" class="container-inputs">
-        <p>Informe o valor para transferir:</p>
-        <mat-form-field class="input-deposito">
-          <input matInput placeholder="Deposito valor (R$)" name="valorTransferencia"
-            formControlName="valorTransferencia" currencyMask
-            />
-        </mat-form-field>
-      </div>
-      <div fxLayout="row" fxLayoutAlign="center center" class="container-inputs date">
-        <mat-form-field appearance="fill">
-          <mat-label>Data de transferência: </mat-label>
-          <input matInput />
-          <mat-hint>DD/MM/YYYY</mat-hint>
+      <div class="form-group mt-4">
+        <label for="destinatario">Número da conta: </label>
+        <input type="text" class="form-control mb-3" id="destinatario" name="destinatario" [(ngModel)]="transacao.destinatario" #destinatario="ngModel" required />
+        <div *ngIf="destinatario.errors && (destinatario.dirty || destinatario.touched)" class="alert alert-danger">
+          <div [hidden]="!destinatario.errors['required']">
+            Digite o número da destinatario para transferência.
+          </div>
+        </div>
 
-          <mat-datepicker ></mat-datepicker>
-        </mat-form-field>
+
+        <label for="valorTransf">Valor: </label>
+        <input type="text" class="form-control" id="valorTransacao" name="valorTransacao" [(ngModel)]="transacao.valorTransacao" #valorTransacao="ngModel" required numerico />
+        <div *ngIf="valorTransacao.errors && (valorTransacao.dirty || valorTransacao.touched)" class="alert alert-danger">
+          <div [hidden]="!valorTransacao.errors['required']">
+            Digite o valor a ser transferido.
+          </div>
+        </div>
       </div>
-      <button mat-raised-button color="primary">
-        Confirmar transferência
-      </button>
+
+      <div class="form-group mt-5 d-flex justify-content-center">
+        <a class="btn btn-secondary me-3" href="#" routerLink="/cliente">
+          <i class="fa fa-arrow-left" aria-hidden="true"></i> Voltar
+        </a>
+        <button type="button" class="btn btn-primary" (click)="transferir()" [disabled]="!formTransferir.form.valid">
+          <i class="fa fa-save" aria-hidden="true"></i> Confirmar Transferência
+        </button>
+      </div>
     </form>
   </div>
 </div>
--->
