@@ -13,6 +13,13 @@
       "senha": "1671054616742",
       "cargo": "CLIENTE",
       "id": 2
+    },
+    {
+      "nome": "Letícia Lima",
+      "email": "let",
+      "senha": "1671060632786",
+      "cargo": "CLIENTE",
+      "id": 3
     }
   ],
   "clientes": [
@@ -21,7 +28,7 @@
       "email": "luis",
       "cpf": "14578965412",
       "telefone": "41975469855",
-      "salario": "3000",
+      "salario": "6000",
       "rua": "Rua Número 1",
       "numero": "2",
       "cep": "87544985",
@@ -41,6 +48,21 @@
       "cidade": "Curitiba",
       "estado": "Paraná",
       "id": 2
+    },
+    {
+      "nome": "Letícia Lima",
+      "email": "let",
+      "cpf": "07804233459",
+      "telefone": "41988887766",
+      "salario": "5000",
+      "rua": "Avenida",
+      "logradouro": "Comendador Franco",
+      "numero": "234",
+      "complemento": "Apto 122",
+      "cep": "89765678",
+      "cidade": "Curitiba",
+      "estado": "PR",
+      "id": 3
     }
   ],
   "contas": [
@@ -61,6 +83,15 @@
       "saldo": 0,
       "idGerente": 1,
       "id": 2
+    },
+    {
+      "idCliente": 3,
+      "dataCriacao": "2022-12-14T23:30:11.802Z",
+      "limite": 2500,
+      "ativo": true,
+      "saldo": 0,
+      "idGerente": 1,
+      "id": 3
     }
   ],
   "gerentes": [
