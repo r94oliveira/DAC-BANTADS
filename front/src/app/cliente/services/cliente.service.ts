@@ -12,7 +12,7 @@ export class ClienteService {
   constructor(private http: HttpClient) {}
 
   listarTodos() {
-    return this.http.get<Cliente[]>(this.url).pipe(tap(console.log));
+    return this.http.get<Cliente[]>(this.url).pipe(tap(res=>res));
   }
 
   buscarPorId(id: number | undefined) {
