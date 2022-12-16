@@ -71,7 +71,7 @@
       "dataCriacao": "2022-12-11T20:04:11.339Z",
       "limite": 1500,
       "ativo": true,
-      "saldo": 500,
+      "saldo": 50,
       "idGerente": 1,
       "id": 1
     },
@@ -80,7 +80,7 @@
       "dataCriacao": "2022-12-11T20:49:00.580Z",
       "limite": 1500,
       "ativo": false,
-      "saldo": 0,
+      "saldo": 100,
       "idGerente": 1,
       "id": 2
     },
@@ -89,7 +89,7 @@
       "dataCriacao": "2022-12-14T23:30:11.802Z",
       "limite": 2500,
       "ativo": true,
-      "saldo": 0,
+      "saldo": 25,
       "idGerente": 1,
       "id": 3
     }

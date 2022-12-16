@@ -16,11 +16,12 @@
         </div>
         <div class="container">
           <label for="email">E-mail:</label>
-          <input type="text" class="form-control" id="email" name="email" placeholder="user@email.com" [(ngModel)]="cliente.email" #email="ngModel" minlength="9" required />
+          <input type="text" class="form-control" id="email" name="email" [(ngModel)]="cliente.email" #email="ngModel"
+            minlength="2" required />
           <div *ngIf="email.errors && (email.dirty || email.touched)" class="alert alert-danger">
             <div [hidden]="!email.errors['required']">Digite o e-mail.</div>
             <div [hidden]="!email.errors['minlenght']">
-              E-mail inválido.
+              O e-mail deve conter ao menos 2 caracteres.
             </div>
           </div>
         </div>
@@ -29,7 +30,7 @@
       <div class="form-group mt-3 d-flex justify-content-evenly">
         <div class="container">
           <label for="cpf">CPF: </label>
-          <input type="text" class="form-control" id="cpf" name="cpf" [(ngModel)]="cliente.cpf" mask="999.999.999-99" #cpf="ngModel" required />
+          <input type="text" class="form-control" id="cpf" name="cpf" [(ngModel)]="cliente.cpf" #cpf="ngModel" minlength="6" required />
           <div *ngIf="cpf.errors && (cpf.dirty || cpf.touched)" class="alert alert-danger">
             <div [hidden]="!cpf.errors['required']">Digite o cpf.</div>
             <div [hidden]="!cpf.errors['minlenght']">
@@ -39,13 +40,14 @@
         </div>
         <div class="container">
           <label for="telefone">Telefone: </label>
-          <input type="text" class="form-control" id="telefone" name="telefone" [(ngModel)]="cliente.telefone" mask="(99) 9 9999-9999" #telefone="ngModel" required />
+          <input type="text" class="form-control" id="telefone" name="telefone" [(ngModel)]="cliente.telefone"
+            #telefone="ngModel" minlength="6" required />
           <div *ngIf="telefone.errors && (telefone.dirty || telefone.touched)" class="alert alert-danger">
             <div [hidden]="!telefone.errors['required']">
               Digite o telefone.
             </div>
             <div [hidden]="!telefone.errors['minlenght']">
-              O telefone deve conter ao menos 10 caracteres.
+              O telefone deve conter ao menos 6 caracteres.
             </div>
           </div>
         </div>
@@ -54,18 +56,20 @@
       <div class="form-group mt-3 d-flex justify-content-evenly">
         <div class="container">
           <label for="salario">Salário: </label>
-          <input type="text" class="form-control" id="salario" name="salario" [(ngModel)]="cliente.salario" #salario="ngModel" numerico required/>
+          <input type="text" class="form-control" id="salario" name="salario" [(ngModel)]="cliente.salario"
+            #salario="ngModel" numerico required />
           <div *ngIf="salario.errors && (salario.dirty || salario.touched)" class="alert alert-danger">
             <div [hidden]="!nome.errors?.['required']">Digite o salário.</div>
           </div>
         </div>
         <div class="container">
           <label for="cep">CEP: </label>
-          <input type="text" class="form-control" id="cep" name="cep" [(ngModel)]="cliente.cep" mask="99999-999" #cep="ngModel" minlength="8" required />
+          <input type="text" class="form-control" id="cep" name="cep" [(ngModel)]="cliente.cep" #cep="ngModel"
+            minlength="2" required />
           <div *ngIf="cep.errors && (cep.dirty || cep.touched)" class="alert alert-danger">
             <div [hidden]="!cep.errors['required']">Digite o CEP.</div>
             <div [hidden]="!cep.errors['minlenght']">
-              O CEP deve conter ao menos 8 caracteres.
+              O CEP deve conter ao menos 2 caracteres.
             </div>
           </div>
         </div>

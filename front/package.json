@@ -25,12 +25,8 @@
     "@ng-bootstrap/ng-bootstrap": "^12.1.1",
     "@ng-select/ng-select": "^8.1.1",
     "@popperjs/core": "^2.11.6",
-    "angular-bootstrap-datetimepicker": "^4.0.2",
     "bootstrap": "^5.2.3",
-    "jquery": "^3.6.2",
-    "moment": "^2.29.4",
-    "ngx-mask": "^13.1.13",
-    "open-iconic": "^1.1.1",
+    "jquery": "^3.6.1",
     "rxjs": "^7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

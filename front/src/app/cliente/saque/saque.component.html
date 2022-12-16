@@ -4,19 +4,30 @@
     <form #formSacar="ngForm">
       <div class="d-flex justify-content-evenly">
         <div class="container">
-          <p>Saldo atual: R$ {{ conta.saldo }}</p>
+          <p>Saldo atual: R$ saldo</p>
         </div>
       </div>
-  
+
       <div class="form-group d-flex justify-content-evenly">
         <div class="container">
           <label for="valorTransacao">Informe o valor a ser sacado:</label>
-          <input type="text" class="form-control" id="valorTransacao" name="valorTransacao"
-            [(ngModel)]="transacao.valorTransacao" #valorTransacao="ngModel" numerico required />
-          <div *ngIf="
+          <input
+            type="text"
+            class="form-control"
+            id="valorTransacao"
+            name="valorTransacao"
+            [(ngModel)]="transacao.valorTransacao"
+            #valorTransacao="ngModel"
+            numerico
+            required
+          />
+          <div
+            *ngIf="
               valorTransacao.errors &&
               (valorTransacao.dirty || valorTransacao.touched)
-            " class="alert alert-danger">
+            "
+            class="alert alert-danger"
+          >
             <div [hidden]="!valorTransacao.errors['required']">
               Digite o valor.
             </div>
@@ -27,7 +38,12 @@
             <a class="btn btn-secondary me-3" [routerLink]="['/cliente']">
               <i class="fa fa-arrow-left" aria-hidden="true"></i> Voltar
             </a>
-            <button type="button" class="btn btn-primary ms-3" (click)="sacar()" [disabled]="!formSacar.form.valid">
+            <button
+              type="button"
+              class="btn btn-primary ms-3"
+              (click)="sacar()"
+              [disabled]="!formSacar.form.valid"
+            >
               <i class="fa-dollar-sign" aria-hidden="true"></i> Sacar
             </button>
           </div>
