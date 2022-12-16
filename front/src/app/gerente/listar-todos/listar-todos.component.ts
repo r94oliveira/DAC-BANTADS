@@ -4,6 +4,8 @@ import { ClienteService } from 'src/app/cliente';
 import { ContaService } from 'src/app/conta/services/conta.service';
 import { Cliente, Conta } from 'src/app/shared';
 import { ModalVerClienteComponent } from '../modal-ver-cliente';
+import { GerenteService } from '../services';
+import { LoginService } from 'src/app/auth/services/login.service';
 
 @Component({
   selector: 'app-listar-todos',
@@ -16,6 +18,8 @@ export class ListarTodosComponent implements OnInit {
   constructor(
     private clienteService: ClienteService,
     private contaService: ContaService,
+    private gerenteService: GerenteService,
+    private loginService: LoginService,
     private modalService: NgbModal
   ) {}
 
@@ -38,32 +42,44 @@ export class ListarTodosComponent implements OnInit {
     if (target.value !== '') {
       let aux: any = [];
 
-      this.clienteService?.listarTodos().subscribe((clientes) => {
-        clientes.forEach((cliente: any) => {
-          // pega apenas os clientes que batem com o valor digitado
-          if (
-            cliente[type].toLowerCase().includes(target.value.toLowerCase())
-          ) {
-            this.contaService
-              .buscarPorIdCliente(cliente.id)
-              .subscribe((conta) => {
-                conta = Object.values(conta).reduce((a, b) => {
-                  return a;
-                });
+      this.gerenteService
+        .buscarPorEmail(this.loginService.usuarioLogado.email)
+        .subscribe((gerente) => {
+          gerente = Object.values(gerente).reduce((a, b) => {
+            return a;
+          });
 
-                // cria um objeto para adicionar no array data
-                let obj = {
-                  cliente: cliente,
-                  conta: conta,
-                };
+          this.contaService
+            .buscarPorIdGerente(gerente.id)
+            .subscribe((contas) => {
+              contas.map((conta) => {
+                this.clienteService
+                  .buscarPorId(conta.idCliente)
+                  .subscribe((cliente: Cliente | any) => {
+                    if (
+                      cliente[type]
+                        .toLowerCase()
+                        .includes(target.value.toLowerCase())
+                    ) {
+                      this.contaService
+                        .buscarPorIdCliente(cliente.id)
+                        .subscribe((conta) => {
+                          conta = Object.values(conta).reduce((a, b) => {
+                            return a;
+                          });
 
-                // o array data serve para mostrar
-                // linha a linha cada cliente com sua respectiva conta
-                aux.push(obj);
+                          let obj = {
+                            cliente: cliente,
+                            conta: conta,
+                          };
+
+                          aux.push(obj);
+                        });
+                    }
+                  });
               });
-          }
+            });
         });
-      });
 
       this.data = aux;
     } else {
@@ -73,32 +89,28 @@ export class ListarTodosComponent implements OnInit {
   }
 
   popularData() {
-    this.clienteService.listarTodos().subscribe((clientes) => {
-      // ordena pelo nome
-      clientes.sort((a: Cliente, b: Cliente) =>
-        a.nome > b.nome ? 1 : b.nome > a.nome ? -1 : 0
-      );
+    this.gerenteService
+      .buscarPorEmail(this.loginService.usuarioLogado.email)
+      .subscribe((gerente) => {
+        gerente = Object.values(gerente).reduce((a, b) => {
+          return a;
+        });
 
-      // itera pelos clientes
-      clientes.forEach((cliente: Cliente) => {
-        // pega a conta de cada cliente
-        this.contaService.buscarPorIdCliente(cliente.id).subscribe((conta) => {
-          conta = Object.values(conta).reduce((a, b) => {
-            return a;
+        this.contaService.buscarPorIdGerente(gerente.id).subscribe((contas) => {
+          contas.map((conta) => {
+            this.clienteService
+              .buscarPorId(conta.idCliente)
+              .subscribe((cliente) => {
+                let obj = {
+                  cliente: cliente,
+                  conta: conta,
+                };
+
+                this.data.push(obj);
+              });
           });
-
-          // cria um objeto para adicionar no array data
-          let obj = {
-            cliente: cliente,
-            conta: conta,
-          };
-
-          // o array data serve para mostrar
-          // linha a linha cada cliente com sua respectiva conta
-          this.data.push(obj);
         });
       });
-    });
   }
 
   abrirModalVerCliente(cliente: Cliente, conta: Conta) {
