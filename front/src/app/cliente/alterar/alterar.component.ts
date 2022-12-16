@@ -13,7 +13,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class AlterarComponent implements OnInit {
   @ViewChild('formAlterar') formAlterar!: NgForm;
-  cliente!: Cliente;
+  cliente: Cliente = new Cliente();
 
   constructor(
     private clienteService: ClienteService,
