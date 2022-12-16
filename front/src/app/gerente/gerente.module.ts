@@ -14,7 +14,13 @@ import { ModalVerClienteComponent } from './modal-ver-cliente/modal-ver-cliente.
 import { ListarMelhoresComponent } from './listar-melhores/listar-melhores.component';
 
 @NgModule({
-  declarations: [HomeComponent, ModalRejeitarComponent, ListarTodosComponent, ModalVerClienteComponent, ListarMelhoresComponent],
+  declarations: [
+    HomeComponent,
+    ModalRejeitarComponent,
+    ListarTodosComponent,
+    ModalVerClienteComponent,
+    ListarMelhoresComponent,
+  ],
   imports: [CommonModule, FormsModule, RouterModule, SharedModule],
   providers: [GerenteService],
 })

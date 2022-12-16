@@ -9,7 +9,7 @@ import { Cliente, Conta } from 'src/app/shared';
   styleUrls: ['./listar-melhores.component.scss'],
 })
 export class ListarMelhoresComponent implements OnInit {
-  data: any = [];
+  data: Array<any> = new Array();
 
   constructor(
     private clienteService: ClienteService,
@@ -28,30 +28,20 @@ export class ListarMelhoresComponent implements OnInit {
 
           // cria um objeto para adicionar no array data
           let obj = {
-            cliente: cliente,
-            conta: conta,
+            cpf: cliente.cpf,
+            nome: cliente.nome,
+            estado: cliente.estado,
+            cidade: cliente.cidade,
+            saldo: conta.saldo,
           };
 
           // o array data serve para mostrar
           // linha a linha cada cliente com sua respectiva conta
           this.data.push(obj);
+          this.data.sort((a, b) => b.saldo - a.saldo);
+          this.data = this.data.slice(0, 5);
         });
       });
-
-      // o sort não funciona porque o data é do tipo any e não array, tem que arrumar
-      this.data.sort(
-        (
-          a: { cliente: Cliente; conta: Conta },
-          b: { cliente: Cliente; conta: Conta }
-        ) =>
-          a.conta.saldo > b.conta.saldo
-            ? 1
-            : b.conta.saldo > a.conta.saldo
-            ? -1
-            : 0
-      );
-
-      console.log(this.data);
     });
   }
 }
