@@ -11,8 +11,9 @@ import { ExtratoComponent } from './extrato/extrato.component';
 import { HomeComponent } from './home/home.component';
 import { SaqueComponent } from './saque/saque.component';
 import { TransferenciaComponent } from './transferencia/transferencia.component';
-
 import { SharedModule } from '../shared';
+import { IConfig, NgxMaskModule } from 'ngx-mask';
+export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
 
 @NgModule({
   declarations: [
@@ -23,7 +24,13 @@ import { SharedModule } from '../shared';
     SaqueComponent,
     TransferenciaComponent,
   ],
-  imports: [CommonModule, FormsModule, RouterModule, SharedModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    RouterModule,
+    SharedModule,
+    NgxMaskModule.forRoot()  
+  ],
   providers: [ClienteService],
 })
-export class ClienteModule {}
+export class ClienteModule { }
