@@ -1,7 +1,13 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { AdminDashComponent } from './admin-dash/admin-dash.component';
 import { ClienteDashComponent } from './cliente-dash/cliente-dash.component';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { SharedModule } from '../shared';
+
+import { CommonModule } from '@angular/common';
+import { NgbPaginationModule, NgbTypeaheadModule, NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap';
+import { AdminService } from './services/admin.service';
 
 
 @NgModule({
@@ -9,8 +15,7 @@ import { ClienteDashComponent } from './cliente-dash/cliente-dash.component';
     AdminDashComponent,
     ClienteDashComponent
   ],
-  imports: [
-    CommonModule
-  ]
+  providers: [AdminService],
+  imports: [CommonModule, FormsModule, RouterModule, SharedModule, NgbPaginationModule, NgbTypeaheadModule, NgbAccordionModule]
 })
 export class AdministradorModule { }

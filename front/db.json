@@ -20,6 +20,13 @@
       "senha": "1671060632786",
       "cargo": "CLIENTE",
       "id": 3
+    },
+    {
+      "nome": "William Yip",
+      "email": "william@ufpr.br",
+      "senha": "123",
+      "cargo": "ADMIN",
+      "id": 4
     }
   ],
   "clientes": [
@@ -102,6 +109,35 @@
       "cpf": "14578985647",
       "telefone": "41987456258",
       "numeroClientes": 1
+    }
+  ],
+  "admin-dash": [
+    {
+      "gerente": {
+        "id": 1,
+        "nome": "William"
+      },
+      "totalClientes": 32,
+      "totalSaldoPositivo": 312321,
+      "totalSaldoNegativo": 321312
+    },
+    {
+      "gerente": {
+        "id": 2,
+        "nome": "Fulano"
+      },
+      "totalClientes": 11,
+      "totalSaldoPositivo": 222,
+      "totalSaldoNegativo": 11
+    },
+    {
+      "gerente": {
+        "id": 3,
+        "nome": "Ciclano"
+      },
+      "totalClientes": 9,
+      "totalSaldoPositivo": 921,
+      "totalSaldoNegativo": 82
     }
   ]
 }

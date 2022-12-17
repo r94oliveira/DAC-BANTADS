@@ -12,5 +12,5 @@ export const LoginRoutes: Routes = [
     component: CadastrarComponent,
   },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: '**', redirectTo: '/login', pathMatch: 'full' },
+  { path: '**', redirectTo: '/login', pathMatch: 'full' }
 ];
