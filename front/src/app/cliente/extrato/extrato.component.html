@@ -1,0 +1,75 @@
+<div class="container d-flex justify-content-center mt-3">
+  <div class="well container__content">
+    <h1>Visualizar Extrato</h1>
+
+    <form #formExtrato="ngForm">
+      <div class="form-group d-flex justify-content-evenly">
+        <div class="container">
+          <label for="dataInicial">Data inicial da consulta: </label>
+          <input type="text" class="form-control" id="dataInicial" name="dataInicial" minlength="2" required> 
+         <!--
+          <input type="text" class="form-control" id="dataInicial" name="dataInicial" [(ngModel)]="cliente.dataInicial" #nome="ngModel" minlength="2" required> 
+          
+          <div *ngIf="dataInicial.errors && (dataInicial.dirty || dataInicial.touched)" class="alert alert-danger">
+            <div [hidden]="!dataInicial.errors['required']">Digite o nome.</div>
+            <div [hidden]="dataIniciale.errors['minlenght']">
+              O nome deve conter ao menos 2 caracteres.
+            </div>
+          </div>-->
+        </div>
+        <div class="container">
+          <label for="dataInicial">Data final da consulta: </label>
+          <input type="text" class="form-control" id="dataInicial" name="dataInicial" minlength="2" required> 
+        </div>
+        <button type="button" class="btn btn-primary" (click)="gerarExtrato()" [disabled]="!formExtrato.form.valid">
+          Buscar
+        </button>
+      </div>
+    </form>
+
+    <table class="table table-striped text-center mt-5">
+      <thead>
+        <th>Data/Hora</th>
+        <th>Operação</th>
+        <th>Cliente origem/destino</th>
+        <th>Valor</th>
+        <th>Saldo Consolidado</th>
+        <tr class="table-danger">
+          <td>12:34:87 12/12/2022</td>
+          <td>Saque</td>
+          <td>Letícia Lima</td>
+          <td>R$200,00</td>
+          <td>R$550.200,50</td>
+        </tr>
+        <tr class="table-info">
+          <td>12:34:87 12/12/2022</td>
+          <td>Depósito</td>
+          <td>Letícia Lima</td>
+          <td>R$2000,00</td>
+          <td>R$552.200,50</td>
+        </tr>
+        <tr class="table-danger">
+          <td>12:34:87 12/12/2022</td>
+          <td>Transferência</td>
+          <td>Katiana Zeitz</td>
+          <td>R$100,00</td>
+          <td>R$552.100,50</td>
+        </tr>
+        <tr class="table-danger">
+          <td>12:34:87 12/12/2022</td>
+          <td>Saque</td>
+          <td>Letícia</td>
+          <td>R$1000,00</td>
+          <td>R$551.000,50</td>
+        </tr>
+      </thead>
+    </table>
+
+    <div class="form-group mt-5 d-flex justify-content-center">
+      <a class="btn btn-secondary me-3" href="#" routerLink="/cliente">
+        <i class="fa fa-arrow-left" aria-hidden="true"></i> Voltar
+      </a>
+     
+    </div>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+<div class="modal-body">
+  <div>
+    <div>
+      <h3>Cliente</h3>
+      <p>Nome: {{ cliente.nome }}</p>
+      <p>E-mail: {{ cliente.email }}</p>
+      <p>CPF: {{ cliente.cpf }}</p>
+      <p>Telefone: {{ cliente.telefone }}</p>
+      <p>Salário: {{ cliente.salario }}</p>
+      <p>CEP: {{ cliente.cep }}</p>
+      <p>Estado: {{ cliente.estado }}</p>
+      <p>Cidade: {{ cliente.cidade }}</p>
+      <p>Logradouro: {{ cliente.logradouro }}</p>
+      <p>Rua: {{ cliente.rua }}</p>
+      <p>Número: {{ cliente.numero }}</p>
+      <p>Complemento: {{ cliente.complemento }}</p>
+    </div>
+
+    <div>
+      <h3>Conta</h3>
+      <p>Data de Criação: {{ conta.dataCriacao }}</p>
+      <p>Limite: {{ conta.limite }}</p>
+      <p>Ativo: {{ conta.ativo }}</p>
+      <p>Saldo: {{ conta.saldo }}</p>
+      <p>Gerente: {{ gerente.nome }}</p>
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+  <button
+    type="button"
+    class="btn btn-outline-dark"
+    (click)="activeModal.close()"
+  >
+    Fechar
+  </button>
+</div>

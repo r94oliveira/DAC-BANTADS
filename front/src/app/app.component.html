@@ -1,1 +1,64 @@
-<app-home></app-home>
+<div class="conteiner-fluid">
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <a class="navbar-brand nav-link ms-3" href="#" routerLink="">
+      <i class="fa fa-user-edit"></i> {{ title }}
+    </a>
+    <div
+      class="navbar-collapse collapsed justify-content-between"
+      id="navbarContent"
+      *ngIf="usuarioLogado"
+    >
+      <ul
+        class="navbar-nav mr-auto ms-3"
+        *ngIf="usuarioLogado.cargo === 'CLIENTE'"
+      >
+        <li class="nav-item">
+          <a class="nav-link" href="#" routerLink="/cliente/home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" routerLink="/cliente/alterar">Alterar</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" routerLink="/cliente/depositar"
+            >Depositar</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" routerLink="/cliente/saque">Sacar</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" routerLink="/cliente/transferencia"
+            >Transferir</a
+          >
+        </li>
+      </ul>
+
+      <ul
+        class="navbar-nav mr-auto ms-3"
+        *ngIf="usuarioLogado.cargo === 'GERENTE'"
+      >
+        <li class="nav-item">
+          <a class="nav-link" href="#" routerLink="/gerente/home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" routerLink="/gerente/listar-todos">Visualizar Clientes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" routerLink="/gerente/listar-melhores">Visualizar os Melhores Clientes</a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav ml-auto me-3">
+        <li class="nav-item">
+          <a class="nav-link me-3" href="#">Logout</a>
+        </li>
+        <li class="nav-item">
+          <p class="navbar-text mb-0 text-white">
+            <i class="fa fa-user"></i> Cliente
+          </p>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <router-outlet></router-outlet>
+</div>
