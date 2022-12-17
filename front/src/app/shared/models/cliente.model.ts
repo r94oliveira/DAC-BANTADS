@@ -5,7 +5,7 @@ export class Cliente {
     public email?: string,
     public cpf?: string,
     public telefone?: string,
-    public salario?: number,
+    public salario: number = 0,
     public rua?: string,
     public logradouro?: string,
     public numero?: number,

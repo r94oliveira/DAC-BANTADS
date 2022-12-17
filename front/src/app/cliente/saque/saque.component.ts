@@ -6,6 +6,7 @@ import { Cliente, Conta, Transacao } from 'src/app/shared';
 import { ClienteService } from '../services/cliente.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ModalMessageComponent } from '../modal-message/modal-message.component';
+import { ModalMessageErroComponent } from '../modal-message-erro/modal-message-erro.component';
 
 @Component({
   selector: 'app-saque',
@@ -52,24 +53,29 @@ export class SaqueComponent implements OnInit {
     return res;
   }
 
-  abrirModal() {
+  abrirModalSucesso() {
     this.modalService.open(ModalMessageComponent);
   }
 
-  //sacar do service transferencia -- tem que verificar se saldo é maior que valor
+  abrirModalErro() {
+    this.modalService.open(ModalMessageErroComponent);
+  }
+
   sacar(): void {
     if (this.formSacar.form.valid) {
       // cod sacar
-      let diff = this.conta.saldo - Number(this.transacao.valorTransacao);
-      
-      if (diff >= 0) {
+      let diff = (this.conta.saldo + this.cliente.salario / 2) - Number(this.transacao.valorTransacao);
+
+      if (diff >= 0 ) {
         this.conta.saldo -= Number(this.transacao.valorTransacao)
         this.contaService.alterar(this.conta).subscribe((res) => res)
+        this.abrirModalSucesso();
       }
-      this.abrirModal();
-      //this.router.navigate(['/cliente/home']);
+      else{
+        this.abrirModalErro();
+      }
     } else {
-      this.mensagem = "Ocorreu um erro ao realizar o saque.";
+      this.abrirModalErro();
     }
   }
 }

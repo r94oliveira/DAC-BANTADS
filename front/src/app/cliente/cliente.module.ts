@@ -14,6 +14,7 @@ import { TransferenciaComponent } from './transferencia/transferencia.component'
 
 import { SharedModule } from '../shared';
 import { ModalMessageComponent } from './modal-message/modal-message.component';
+import { ModalMessageErroComponent } from './modal-message-erro/modal-message-erro.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { ModalMessageComponent } from './modal-message/modal-message.component';
     SaqueComponent,
     TransferenciaComponent,
     ModalMessageComponent,
+    ModalMessageErroComponent,
   ],
   imports: [CommonModule, FormsModule, RouterModule, SharedModule],
   providers: [ClienteService],

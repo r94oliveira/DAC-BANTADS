@@ -46,6 +46,7 @@ export class HomeComponent implements OnInit {
       });
   }
 
+  
   tratarRespostaSubscribe(res: any) {
     res = Object.values(res).reduce((a, b) => {
       return a;

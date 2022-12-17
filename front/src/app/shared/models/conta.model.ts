@@ -4,7 +4,7 @@ export class Conta {
     public id?: number,
     public idCliente?: number,
     public dataCriacao?: Date,
-    public limite?: number,
+    public limite: number = 0,
     public ativo?: boolean,
     public idGerente?: number
   ) {}
