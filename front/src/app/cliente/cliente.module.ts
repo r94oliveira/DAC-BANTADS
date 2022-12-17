@@ -13,6 +13,7 @@ import { SaqueComponent } from './saque/saque.component';
 import { TransferenciaComponent } from './transferencia/transferencia.component';
 
 import { SharedModule } from '../shared';
+import { ModalMessageComponent } from './modal-message/modal-message.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { SharedModule } from '../shared';
     HomeComponent,
     SaqueComponent,
     TransferenciaComponent,
+    ModalMessageComponent,
   ],
   imports: [CommonModule, FormsModule, RouterModule, SharedModule],
   providers: [ClienteService],
