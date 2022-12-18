@@ -3,8 +3,14 @@
     <h1>Bem-vindo(a), {{ cliente.nome }}</h1>
 
     <div class="d-flex justify-content-evenly">
+      <div class="container" *ngIf="(this.conta.saldo! >= 0)">
+        <p>Saldo atual: R$ {{ conta.saldo | number:'1.2-2' }}</p>
+      </div>
+      <div class="container informacao-saldo-negativo" *ngIf="!(this.conta.saldo! >= 0)">
+        <p>Saldo atual: R$ {{ conta.saldo | number:'1.2-2' }}</p>
+      </div>
       <div class="container">
-        <p>Saldo atual: R$ {{ conta.saldo }}</p>
+        <p>Limite: R$ {{ cliente.salario/2 | number:'1.2-2' }}</p>
       </div>
     </div>
 

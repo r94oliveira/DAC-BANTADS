@@ -4,6 +4,11 @@ import { Transacao, Cliente, Conta } from 'src/app/shared';
 import { ClienteService } from '../services/cliente.service';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
+import { ModalMessageComponent } from '../modal-message/modal-message.component';
+import { ModalMessageErroComponent } from '../modal-message-erro/modal-message-erro.component';
+import { LoginService } from 'src/app/auth/services/login.service';
+import { ContaService } from 'src/app/conta/services/conta.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-transferencia',
@@ -12,38 +17,70 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class TransferenciaComponent implements OnInit {
   @ViewChild('formTransferir') formTransferir!: NgForm;
-  transacao!: Transacao;
+  transacao: Transacao = new Transacao();
   cliente!: Cliente;
-  conta!: Conta;
+  conta: Conta = new Conta();
+  mensagem: string = '';
 
   constructor(
-    private clienteService: ClienteService,
-    private route: ActivatedRoute,
-    private router: Router
+   private clienteService: ClienteService,
+    private loginService: LoginService,
+    private contaService: ContaService,
+    private modalService: NgbModal
   ) {}
 
   ngOnInit(): void {
-    // snapshot.params de ActivatedRoute dá acesso aos parâmetros passados
-    // Operador + (antes do this) converte para número
-    let id = +this.route.snapshot.params['id'];
+    this.clienteService
+      .buscarPorEmail(this.loginService.usuarioLogado.email)
+      .subscribe((cliente) => {
+        if (cliente) {
+          cliente = this.tratarRespostaSubscribe(cliente);
+          this.cliente = cliente;
 
-    // Com o id, obtém a pessoa
-    this.clienteService.buscarPorId(id).subscribe((res) => {
-      if (res) {
-        this.cliente = res;
-      } else {
-        throw new Error('Cliente não encontrado: id = ' + id);
+          this.contaService.buscarPorIdCliente(this.cliente.id).subscribe((conta) => {
+            this.conta = this.tratarRespostaSubscribe(conta);
+          })          
+        } else {
+          throw new Error('Cliente não encontrado: email = '
+            + this.loginService.usuarioLogado.email);
+        }
       }
-    });
+      );
   }
 
-  transferir(): void {
-    // Verifica se o formulário é válido
-    if (this.formTransferir.form.valid) {
-      // cod depositar
+  tratarRespostaSubscribe(res: any) {
+    res = Object.values(res).reduce((a, b) => {
+      return a;
+    });
 
-      // Redireciona para /pessoas/listar
-      this.router.navigate(['/cliente/home']);
+    return res;
+  }
+
+
+  abrirModalSucesso() {
+    this.modalService.open(ModalMessageComponent);
+  }
+
+  abrirModalErro() {
+    this.modalService.open(ModalMessageErroComponent);
+  }
+
+
+  transferir(): void {
+    if (this.formTransferir.form.valid) {
+      let diff = (this.conta.saldo + this.cliente.salario / 2) - Number(this.transacao.valorTransacao);
+
+      if (diff >= 0) {
+        this.conta.saldo -= Number(this.transacao.valorTransacao)
+        this.contaService.alterar(this.conta).subscribe((res) => res)
+        this.transacao.tipoTransacao = "transferencia";
+        this.abrirModalSucesso();
+      }
+      else{
+        this.abrirModalErro();
+      }
+    } else {
+      this.abrirModalErro();
     }
   }
 }
