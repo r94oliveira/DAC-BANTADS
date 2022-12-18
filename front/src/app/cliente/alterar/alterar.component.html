@@ -29,6 +29,11 @@
 
       <div class="form-group mt-3 d-flex justify-content-evenly">
         <div class="container">
+          <label for="cpf">CPF: </label>
+          <p class="form-control">{{ cliente.cpf }}</p>
+        </div>
+
+        <div class="container">
           <label for="telefone">Telefone: </label>
           <input type="text" class="form-control" id="telefone" name="telefone" [(ngModel)]="cliente.telefone"
             #telefone="ngModel" minlength="6" required />
