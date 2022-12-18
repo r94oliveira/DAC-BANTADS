@@ -21,7 +21,10 @@
             currencyMask [options]="{prefix: 'R$ ', thousands: '.', decimal: ',' }"
             required
           />
-
+          <div *ngIf="valorTransacao.errors && (valorTransacao.dirty || valorTransacao.touched)" class="alert alert-danger">
+            <div [hidden]="!valorTransacao.errors?.['required']">Digite o salário.</div>
+          </div>
+          
           <div class="form-group mt-5 d-flex justify-content-center">
             <a class="btn btn-secondary me-3" [routerLink]="['/cliente']">
               <i class="fa fa-arrow-left" aria-hidden="true"></i> Voltar

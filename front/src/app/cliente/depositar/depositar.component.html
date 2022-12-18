@@ -9,9 +9,10 @@
 
       <div class="form-group">
         <label for="valorTransacao">Valor: </label>
-        <input type="text" class="form-control mt-3 text-start" id="valorTransacao" name="valorTransacao"
-          [(ngModel)]="transacao.valorTransacao" #valorTransacao="ngModel" 
-          currencyMask [options]="{prefix: 'R$ ', thousands: '.', decimal: ',' }" required />
+        <input type="text" class="form-control mt-3 text-start" id="valorTransacao" name="valorTransacao" [(ngModel)]="transacao.valorTransacao" #valorTransacao="ngModel" currencyMask [options]="{prefix: 'R$ ', thousands: '.', decimal: ',' }" required />
+        <div *ngIf="valorTransacao.errors && (valorTransacao.dirty || valorTransacao.touched)" class="alert alert-danger">
+          <div [hidden]="!valorTransacao.errors?.['required']">Digite o salário.</div>
+        </div>
       </div>
       
       <div class="mensagem-erro">{{ this.mensagem }}</div>

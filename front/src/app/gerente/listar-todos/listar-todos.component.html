@@ -9,7 +9,7 @@
 
       <div class="form-group mt-2 mb-5">
         <label for="cpf">CPF:</label>
-        <input type="text" class="form-control" id="cpf" name="cpf" />
+        <input type="text" class="form-control" id="cpf" name="cpf" maxlength="14" mask='000.000.000-00' />
       </div>
     </form>
 
@@ -25,11 +25,11 @@
           <th>Ação</th>
         </tr>
         <tr *ngFor="let value of data">
-          <td>{{ value.cliente.cpf }}</td>
+          <td>{{ value.cliente.cpf! | cpf }}</td>
           <td>{{ value.cliente.nome }}</td>
           <td>{{ value.cliente.estado }}</td>
           <td>{{ value.cliente.cidade }}</td>
-          <td>{{ value.conta.saldo }}</td>
+          <td>R$ {{ value.conta.saldo | number:'1.2-2' }}</td>
           <button
             type="button"
             class="btn"
