@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -17,6 +17,20 @@ import { AuthModule } from './auth/auth.module';
 
 import { SharedModule } from './shared';
 
+import { NgxMaskModule, IConfig } from 'ngx-mask'
+export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
+import { CurrencyMaskConfig, CurrencyMaskModule } from "ng2-currency-mask";
+export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
+  align: "right",
+  allowNegative: true,
+  //allowZero: true,
+  decimal: ",",
+  precision: 2,
+  prefix: "R$ ",
+  suffix: "",
+  thousands: "."
+};
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -30,8 +44,13 @@ import { SharedModule } from './shared';
     HttpClientModule,
     SharedModule,
     AuthModule,
+    NgxMaskModule.forRoot(),
+    CurrencyMaskModule
   ],
-  providers: [],
+  providers: [
+    /*{ provide: LOCALE_ID,
+      useValue: 'pt-BR' } */
+  ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

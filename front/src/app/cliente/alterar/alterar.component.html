@@ -16,13 +16,10 @@
         </div>
         <div class="container">
           <label for="email">E-mail:</label>
-          <input type="text" class="form-control" id="email" name="email" [(ngModel)]="cliente.email" #email="ngModel"
-            minlength="2" required />
+          <input type="text" class="form-control" id="email" name="email" [(ngModel)]="cliente.email" #email="ngModel" minlength="2" required />
           <div *ngIf="email.errors && (email.dirty || email.touched)" class="alert alert-danger">
             <div [hidden]="!email.errors['required']">Digite o e-mail.</div>
-            <div [hidden]="!email.errors['minlenght']">
-              O e-mail deve conter ao menos 2 caracteres.
-            </div>
+            <div [hidden]="!email.errors['minlenght']">O e-mail deve conter ao menos 2 caracteres.</div>
           </div>
         </div>
       </div>
@@ -36,7 +33,7 @@
         <div class="container">
           <label for="telefone">Telefone: </label>
           <input type="text" class="form-control" id="telefone" name="telefone" [(ngModel)]="cliente.telefone"
-            #telefone="ngModel" minlength="6" required />
+            #telefone="ngModel" minlength="6" required mask='(00) 00000-0000' />
           <div *ngIf="telefone.errors && (telefone.dirty || telefone.touched)" class="alert alert-danger">
             <div [hidden]="!telefone.errors['required']">
               Digite o telefone.
@@ -51,8 +48,7 @@
       <div class="form-group mt-3 d-flex justify-content-evenly">
         <div class="container">
           <label for="salario">Salário: </label>
-          <input type="text" class="form-control" id="salario" name="salario" [(ngModel)]="cliente.salario"
-            #salario="ngModel" numerico required />
+          <input type="text" class="form-control text-start" id="salario" name="salario" [(ngModel)]="cliente.salario" #salario="ngModel" currencyMask [options]="{prefix: 'R$ ', thousands: '.', decimal: ',' }"  required />
           <div *ngIf="salario.errors && (salario.dirty || salario.touched)" class="alert alert-danger">
             <div [hidden]="!nome.errors?.['required']">Digite o salário.</div>
           </div>
@@ -60,7 +56,7 @@
         <div class="container">
           <label for="cep">CEP: </label>
           <input type="text" class="form-control" id="cep" name="cep" [(ngModel)]="cliente.cep" #cep="ngModel"
-            minlength="2" required />
+            minlength="2" required  mask='00000-000'/>
           <div *ngIf="cep.errors && (cep.dirty || cep.touched)" class="alert alert-danger">
             <div [hidden]="!cep.errors['required']">Digite o CEP.</div>
             <div [hidden]="!cep.errors['minlenght']">

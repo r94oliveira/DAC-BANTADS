@@ -4,7 +4,7 @@
     <form #formSacar="ngForm">
       <div class="d-flex justify-content-evenly">
         <div class="container">
-          <p>Saldo atual: R$ {{ conta.saldo }}</p>
+          <p>Saldo atual: R$ {{ conta.saldo | number:'1.2-2' }}</p>
         </div>
       </div>
 
@@ -13,12 +13,12 @@
           <label for="valorTransacao">Informe o valor a ser sacado:</label>
           <input
             type="text"
-            class="form-control"
+            class="form-control text-start"
             id="valorTransacao"
             name="valorTransacao"
             [(ngModel)]="transacao.valorTransacao"
             #valorTransacao="ngModel"
-            numerico
+            currencyMask [options]="{prefix: 'R$ ', thousands: '.', decimal: ',' }"
             required
           />
 
