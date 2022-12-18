@@ -3,14 +3,15 @@
     <h1>Realizar Depósito</h1>
 
     <form #formDepositar="ngForm">
-      <p>Saldo atual: R$ {{ conta.saldo }}</p>
+      <p>Saldo atual: R$ {{ conta.saldo | number:'1.2-2' }}</p>
 
       <p>Informe o valor do depósito:</p>
 
       <div class="form-group">
         <label for="valorTransacao">Valor: </label>
-        <input type="text" class="form-control mt-3" id="valorTransacao" numerico name="valorTransacao"
-          [(ngModel)]="transacao.valorTransacao" #valorTransacao="ngModel" required />
+        <input type="text" class="form-control mt-3 text-start" id="valorTransacao" name="valorTransacao"
+          [(ngModel)]="transacao.valorTransacao" #valorTransacao="ngModel" 
+          currencyMask [options]="{prefix: 'R$ ', thousands: '.', decimal: ',' }" required />
       </div>
       
       <div class="mensagem-erro">{{ this.mensagem }}</div>

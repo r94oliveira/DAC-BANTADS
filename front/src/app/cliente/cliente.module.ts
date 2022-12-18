@@ -16,6 +16,10 @@ import { SharedModule } from '../shared';
 import { ModalMessageComponent } from './modal-message/modal-message.component';
 import { ModalMessageErroComponent } from './modal-message-erro/modal-message-erro.component';
 
+import { NgxMaskModule, IConfig } from 'ngx-mask'
+export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
+import { CurrencyMaskModule } from "ng2-currency-mask";
+
 @NgModule({
   declarations: [
     AlterarComponent,
@@ -27,7 +31,7 @@ import { ModalMessageErroComponent } from './modal-message-erro/modal-message-er
     ModalMessageComponent,
     ModalMessageErroComponent,
   ],
-  imports: [CommonModule, FormsModule, RouterModule, SharedModule],
+  imports: [CommonModule, FormsModule, RouterModule, SharedModule, NgxMaskModule.forRoot(), CurrencyMaskModule],
   providers: [ClienteService],
 })
 export class ClienteModule {}
