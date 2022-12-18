@@ -8,6 +8,8 @@ import { SharedModule } from '../shared';
 import { CommonModule } from '@angular/common';
 import { NgbPaginationModule, NgbTypeaheadModule, NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap';
 import { AdminService } from './services/admin.service';
+import { ContaService } from '../conta/services/conta.service';
+import { ClienteService } from '../cliente';
 
 
 @NgModule({
@@ -15,7 +17,7 @@ import { AdminService } from './services/admin.service';
     AdminDashComponent,
     ClienteDashComponent
   ],
-  providers: [AdminService],
+  providers: [AdminService, ClienteService, ContaService],
   imports: [CommonModule, FormsModule, RouterModule, SharedModule, NgbPaginationModule, NgbTypeaheadModule, NgbAccordionModule]
 })
 export class AdministradorModule { }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AdminService } from '../services/admin.service';
+import { ClienteDashDto } from '../dto/cliente-dash-dto';
 
 @Component({
   selector: 'app-cliente-dash',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClienteDashComponent implements OnInit {
 
-  constructor() { }
+  page = 1
+  pageSize = 15
+  data!: ClienteDashDto[]
+  collectionSize = 1
 
-  ngOnInit(): void {
+  constructor(private service: AdminService) { }
+
+  ngOnInit () {
+    this.refreshData()
   }
 
+  refreshData () {
+    this.service.listarClientes().subscribe(res => {
+      this.data = res
+    })
+  }
 }
