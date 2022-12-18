@@ -11,11 +11,11 @@
           <th>Saldo</th>
         </tr>
         <tr *ngFor="let value of data">
-          <td>{{ value.cpf }}</td>
+          <td>{{ value.cpf! | cpf }}</td>
           <td>{{ value.nome }}</td>
           <td>{{ value.estado }}</td>
           <td>{{ value.cidade }}</td>
-          <td>{{ value.saldo }}</td>
+          <td>R$ {{ value.saldo | number:'1.2-2' }}</td>
         </tr>
       </tbody>
     </table>
