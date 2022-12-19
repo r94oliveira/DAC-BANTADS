@@ -109,35 +109,46 @@
       "cpf": "14578985647",
       "telefone": "41987456258",
       "numeroClientes": 1
-    }
-  ],
-  "admin-dash": [
-    {
-      "gerente": {
-        "id": 1,
-        "nome": "William"
-      },
-      "totalClientes": 32,
-      "totalSaldoPositivo": 312321,
-      "totalSaldoNegativo": -321312
     },
     {
-      "gerente": {
-        "id": 2,
-        "nome": "Fulano"
-      },
-      "totalClientes": 11,
-      "totalSaldoPositivo": 222,
-      "totalSaldoNegativo": 11
+      "numeroClientes": 0,
+      "id": 2,
+      "nome": "Gerente teste",
+      "email": "gerente@ge.com",
+      "cpf": "783.262.550-33",
+      "telefone": "321321312312"
     },
     {
-      "gerente": {
-        "id": 3,
-        "nome": "Ciclano"
-      },
-      "totalClientes": 9,
-      "totalSaldoPositivo": 921,
-      "totalSaldoNegativo": 32
+      "numeroClientes": 0,
+      "id": 3,
+      "nome": "g5",
+      "email": "dsad@dsadas.com",
+      "cpf": "580.190.530-85",
+      "telefone": "321321312312"
+    },
+    {
+      "numeroClientes": 0,
+      "id": 4,
+      "nome": "aaaaaaa",
+      "email": "whyip2016@gmail.com",
+      "cpf": "580.190.530-85",
+      "telefone": "41988326860"
+    },
+    {
+      "numeroClientes": 0,
+      "id": 5,
+      "nome": "zzzzzzzzz",
+      "email": "whyip2016@gmail.com",
+      "cpf": "580.190.530-85",
+      "telefone": "41988326860"
+    },
+    {
+      "numeroClientes": 0,
+      "id": 6,
+      "nome": "bbbbbbbbbbbb",
+      "email": "whyip2016@gmail.com",
+      "cpf": "580.190.530-85",
+      "telefone": "41988326860"
     }
   ]
 }

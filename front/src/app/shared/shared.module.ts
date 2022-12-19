@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { NumericoDirective } from './directives';
+import { CpfValidatorDirective, NumericoDirective } from './directives';
 
 @NgModule({
-  declarations: [NumericoDirective],
+  declarations: [NumericoDirective, CpfValidatorDirective],
   imports: [CommonModule],
-  exports: [NumericoDirective],
+  exports: [NumericoDirective, CpfValidatorDirective],
 })
 export class SharedModule {}

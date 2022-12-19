@@ -10,12 +10,16 @@ import { NgbPaginationModule, NgbTypeaheadModule, NgbAccordionModule } from '@ng
 import { AdminService } from './services/admin.service';
 import { ContaService } from '../conta/services/conta.service';
 import { ClienteService } from '../cliente';
+import { InserirGerenteComponent } from './inserir-gerente/inserir-gerente.component';
+import { EditarGerenteComponent } from './editar-gerente/editar-gerente.component';
 
 
 @NgModule({
   declarations: [
     AdminDashComponent,
-    ClienteDashComponent
+    ClienteDashComponent,
+    InserirGerenteComponent,
+    EditarGerenteComponent
   ],
   providers: [AdminService, ClienteService, ContaService],
   imports: [CommonModule, FormsModule, RouterModule, SharedModule, NgbPaginationModule, NgbTypeaheadModule, NgbAccordionModule]

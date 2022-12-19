@@ -1,4 +1,4 @@
-import { Gerente } from "../entities/Gerente"
+import { Gerente } from "src/app/shared"
 
 export interface GerenteDashDto {
   gerente: Gerente
