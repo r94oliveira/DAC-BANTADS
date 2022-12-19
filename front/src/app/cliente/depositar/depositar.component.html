@@ -3,7 +3,7 @@
     <h1>Realizar Depósito</h1>
 
     <form #formDepositar="ngForm">
-      <p>Saldo atual: R$ {{ conta.saldo | number:'1.2-2' }}</p>
+      <p>Saldo atual: {{ conta.saldo | currency }}</p>
 
       <p>Informe o valor do depósito:</p>
 
