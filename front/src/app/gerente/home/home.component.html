@@ -12,7 +12,7 @@
         <tr *ngFor="let cliente of clientes">
           <td>{{ cliente.cpf! | cpf }}</td>
           <td>{{ cliente.nome }}</td>
-          <td>R$ {{ cliente.salario | number:'1.2-2' }}</td>
+          <td>{{ cliente.salario | currency }}</td>
           <td class="text-center" style="width: 300px">
             <a href="#" title="Aprovar" alt="Aprovar" class="btn btn-xs btn-success me-3" (click)="aprovar($event, cliente)">
               <i class="fa fa-times" aria-hidden="true"></i> Aprovar

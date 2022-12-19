@@ -29,7 +29,7 @@
           <td>{{ value.cliente.nome }}</td>
           <td>{{ value.cliente.estado }}</td>
           <td>{{ value.cliente.cidade }}</td>
-          <td>R$ {{ value.conta.saldo | number:'1.2-2' }}</td>
+          <td>{{ value.conta.saldo | currency}}</td>
           <button
             type="button"
             class="btn"

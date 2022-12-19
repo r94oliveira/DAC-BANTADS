@@ -4,13 +4,13 @@
 
     <div class="d-flex justify-content-evenly">
       <div class="container" *ngIf="(this.conta.saldo! >= 0)">
-        <p>Saldo atual: R$ {{ conta.saldo | number:'1.2-2' }}</p>
+        <p>Saldo atual: {{ conta.saldo | currency }}</p>
       </div>
       <div class="container informacao-saldo-negativo" *ngIf="!(this.conta.saldo! >= 0)">
-        <p>Saldo atual: R$ {{ conta.saldo | number:'1.2-2' }}</p>
+        <p>Saldo atual: {{ conta.saldo | currency }}</p>
       </div>
       <div class="container">
-        <p>Limite: R$ {{ cliente.salario/2 | number:'1.2-2' }}</p>
+        <p>Limite: {{ cliente.salario/2 | currency }}</p>
       </div>
     </div>
 

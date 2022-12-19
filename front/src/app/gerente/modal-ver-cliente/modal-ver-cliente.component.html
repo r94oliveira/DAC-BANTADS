@@ -6,7 +6,7 @@
       <p>E-mail: {{ cliente.email }}</p>
       <p>CPF: {{ cliente.cpf! | cpf }}</p>
       <p>Telefone: {{ cliente.telefone! | phone }}</p>
-      <p>Salário: R$ {{ cliente.salario | number : '1.2-2' }}</p>
+      <p>Salário: {{ cliente.salario | currency }}</p>
       <p>CEP: {{ cliente.cep! | cep }}</p>
       <p>Estado: {{ cliente.estado }}</p>
       <p>Cidade: {{ cliente.cidade }}</p>
@@ -19,9 +19,9 @@
     <div class="mt-5">
       <h3 class="fs-4 text">Conta</h3>
       <p>Data de Criação: {{ conta.dataCriacao | date : "dd/MM/yyyy HH:mm"}}</p>
-      <p>Limite: R$ {{ conta.limite | number:'1.2-2' }}</p>
+      <p>Limite: {{ conta.limite | currency }}</p>
       <p>Ativo: {{ conta.ativo }}</p>
-      <p>Saldo: R$ {{ conta.saldo | number:'1.2-2' }}</p>
+      <p>Saldo: {{ conta.saldo | currency }}</p>
       <p>Gerente: {{ gerente.nome }}</p>
     </div>
   </div>

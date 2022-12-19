@@ -15,7 +15,7 @@
           <td>{{ value.nome }}</td>
           <td>{{ value.estado }}</td>
           <td>{{ value.cidade }}</td>
-          <td>R$ {{ value.saldo | number:'1.2-2' }}</td>
+          <td>{{ value.saldo | currency }}</td>
         </tr>
       </tbody>
     </table>
