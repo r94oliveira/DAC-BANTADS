@@ -10,7 +10,7 @@
         <input type="text" class="form-control mb-3" id="destinatario" name="destinatario" [(ngModel)]="transacao.destinatario" #destinatario="ngModel" required />
         <div *ngIf="destinatario.errors && (destinatario.dirty || destinatario.touched)" class="alert alert-danger">
           <div [hidden]="!destinatario.errors['required']">
-            Digite o número da destinatario para transferência.
+            Digite o número da destinatário para transferência.
           </div>
         </div>
 
