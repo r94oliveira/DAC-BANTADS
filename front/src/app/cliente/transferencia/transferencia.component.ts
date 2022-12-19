@@ -2,8 +2,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Transacao, Cliente, Conta } from 'src/app/shared';
 import { ClienteService } from '../services/cliente.service';
-import { Router } from '@angular/router';
-import { ActivatedRoute } from '@angular/router';
 import { ModalMessageComponent } from '../modal-message/modal-message.component';
 import { ModalMessageErroComponent } from '../modal-message-erro/modal-message-erro.component';
 import { LoginService } from 'src/app/auth/services/login.service';
@@ -52,10 +50,8 @@ export class TransferenciaComponent implements OnInit {
     res = Object.values(res).reduce((a, b) => {
       return a;
     });
-
     return res;
   }
-
 
   abrirModalSucesso() {
     this.modalService.open(ModalMessageComponent);
@@ -64,7 +60,6 @@ export class TransferenciaComponent implements OnInit {
   abrirModalErro() {
     this.modalService.open(ModalMessageErroComponent);
   }
-
 
   transferir(): void {
     if (this.formTransferir.form.valid) {
