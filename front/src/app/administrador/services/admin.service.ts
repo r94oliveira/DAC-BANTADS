@@ -54,13 +54,9 @@ export class AdminService {
       next: data => {
         const gerentes = Object.values(data)
 
-        const lastId = gerentes[gerentes.length - 1].id
-
-        gerente.id = lastId + 1
         gerente.numeroClientes = this.gerarNumeroClientes(gerentes)
 
         let usuario: Usuario = {
-          id: gerente.id,
           cargo: 'GERENTE',
           email: gerente.email,
           nome: gerente.nome,

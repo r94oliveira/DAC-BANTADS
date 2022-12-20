@@ -8,12 +8,9 @@
       "id": 1
     }
   ],
-  "clientes": [
-  ],
-  "contas": [
-  ],
+  "clientes": [],
+  "contas": [],
   "gerentes": [
   ],
-  "transacoes": [
-  ]
+  "transacoes": []
 }
