@@ -34,10 +34,9 @@
 
         <div class="form-group mt-3">
           <label for="cpf">CPF: </label>
-          <input cpfValidator type="text" class="form-control" id="cpf" name="cpf" [(ngModel)]="gerente.cpf"
-            #cpf="ngModel">
-          <div class="alert alert-danger" *ngIf="cpf.errors && (cpf.dirty && cpf.touched)">
-            <p *ngIf="cpf.errors!['invalid']">CPF inválido</p>
+          <input cpfValidator type="text" class="form-control" id="cpf" name="cpf" [(ngModel)]="gerente.cpf" #cpf="ngModel" mask='000.000.000-00' required />
+          <div *ngIf="cpf.errors && (cpf.dirty || cpf.touched)" class="alert alert-danger">
+            <div [hidden]="!cpf.errors?.['required']">Digite o CPF.</div>
           </div>
         </div>
 
