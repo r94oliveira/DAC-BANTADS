@@ -115,7 +115,7 @@
       "dataCriacao": "2022-12-11T20:49:00.580Z",
       "limite": 1500,
       "ativo": true,
-      "saldo": 280,
+      "saldo": 300,
       "idGerente": 1,
       "id": 2
     },
@@ -124,7 +124,7 @@
       "dataCriacao": "2022-12-14T23:30:11.802Z",
       "limite": 2500,
       "ativo": true,
-      "saldo": 23392.09,
+      "saldo": 35584.09,
       "idGerente": 3,
       "id": 3
     }
@@ -227,6 +227,36 @@
       "saldo": 294,
       "color": "",
       "id": 8
+    },
+    {
+      "data": 1671559107241,
+      "valorTransacao": 12212.12,
+      "idCliente": 3,
+      "tipoTransacao": "Depósito",
+      "idClienteDestinatario": 3,
+      "saldo": 35604.21,
+      "color": "table-info",
+      "id": 9
+    },
+    {
+      "data": 1671559112972,
+      "valorTransacao": 0.12,
+      "idCliente": 3,
+      "tipoTransacao": "Saque",
+      "idClienteDestinatario": 3,
+      "saldo": 35604.09,
+      "color": "table-danger",
+      "id": 10
+    },
+    {
+      "data": 1671559216452,
+      "valorTransacao": 20,
+      "idCliente": 3,
+      "tipoTransacao": "Transferência",
+      "idClienteDestinatario": 2,
+      "saldo": 35584.09,
+      "color": "",
+      "id": 11
     }
   ]
 }
