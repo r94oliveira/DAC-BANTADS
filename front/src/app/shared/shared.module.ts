@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { CpfValidatorDirective, NumericoDirective } from './directives';
+import { CpfValidatorDirective,NumericoDirective } from './directives';
 
 // Pipes
 import { CpfPipe } from './pipes';

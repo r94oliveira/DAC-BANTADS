@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { GerenteDashDto } from '../dto/gerente-dash-dto';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/internal/Observable';
-import { Conta, Gerente } from 'src/app/shared';
+import { Conta, Gerente, Usuario } from 'src/app/shared';
 import { ClienteService } from 'src/app/cliente';
 import { ClienteDashDto } from '../dto/cliente-dash-dto';
 import { ContaService } from 'src/app/conta/services/conta.service';
@@ -20,7 +20,7 @@ export class AdminService {
     private http: HttpClient,
     private clienteService: ClienteService,
     private contaService: ContaService,
-    private gerenteService: GerenteService,
+    private gerenteService: GerenteService
   ) { }
 
   gerarNumeroClientes (gerentes: Gerente[]): number {
@@ -59,14 +59,26 @@ export class AdminService {
         gerente.id = lastId + 1
         gerente.numeroClientes = this.gerarNumeroClientes(gerentes)
 
-        this.http.post(this.gerenteHost, gerente).subscribe({
-          next: data => {
-            console.log('gerente inserido: ', data)
-          },
-          error: error => {
-            console.error('error inserir gerente: ', error)
-          }
+        let usuario: Usuario = {
+          id: gerente.id,
+          cargo: 'GERENTE',
+          email: gerente.email,
+          nome: gerente.nome,
+          senha: gerente.senha
+        }
+
+        this.http.post('http://localhost:3000/users', usuario).subscribe(() => {
+          this.http.post(this.gerenteHost, gerente).subscribe({
+            next: data => {
+              console.log('gerente inserido: ', data)
+              window.location.replace('/admin')
+            },
+            error: error => {
+              console.error('error inserir gerente: ', error)
+            }
+          })
         })
+
       },
       error (err) {
         console.log('error gerenteService.listarTodos()')
@@ -76,7 +88,7 @@ export class AdminService {
 
   }
 
-  removerGerenteId(id: number): Observable<any> {
+  removerGerenteId (id: number): Observable<any> {
     return this.http.delete(`${this.gerenteHost}/${id}`)
   }
 
@@ -105,7 +117,7 @@ export class AdminService {
           }
 
           gerentesDtos.push(dto)
-          gerentesDtos = gerentesDtos.sort((a,b) => a.gerente.nome!.localeCompare(b.gerente.nome!))
+          gerentesDtos = gerentesDtos.sort((a, b) => a.gerente.nome!.localeCompare(b.gerente.nome!))
         })
 
       })

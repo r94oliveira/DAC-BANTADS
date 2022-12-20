@@ -9,7 +9,7 @@ import { AbstractControl, NG_VALIDATORS, ValidationErrors, Validator } from '@an
     multi: true
   }]
 })
-export class CpfValidatorDirective implements Validator, OnInit {
+export class CpfValidatorDirective implements Validator {
 
   static cpfLength = 11;
 

@@ -27,6 +27,13 @@
       "senha": "123",
       "cargo": "ADMIN",
       "id": 4
+    },
+    {
+      "id": 8,
+      "cargo": "GERENTE",
+      "email": "william@gmail.br",
+      "nome": "WILLIAM",
+      "senha": "123"
     }
   ],
   "clientes": [
@@ -133,6 +140,24 @@
       "email": "whyip2016@gmail.com",
       "cpf": "580.190.530-85",
       "telefone": "41988326860"
+    },
+    {
+      "numeroClientes": 0,
+      "id": 7,
+      "nome": "teste",
+      "email": "william@gmail.br",
+      "cpf": "580.190.530-85",
+      "telefone": "22222222222",
+      "senha": "123"
+    },
+    {
+      "numeroClientes": 0,
+      "id": 8,
+      "nome": "WILLIAM",
+      "email": "william@gmail.br",
+      "cpf": "783.262.550-33",
+      "telefone": "41988326860",
+      "senha": "123"
     }
   ]
 }

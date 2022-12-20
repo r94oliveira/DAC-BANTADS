@@ -13,6 +13,7 @@ export class InserirGerenteComponent implements OnInit {
 
   @ViewChild('gerenteForm') gerenteForm!: NgForm
   gerente!: Gerente
+  senha!: string
 
   constructor (private adminService: AdminService, private router: Router) {}
 
@@ -23,7 +24,6 @@ export class InserirGerenteComponent implements OnInit {
   inserir(): void {
     if (this.gerenteForm.form.valid) {
       this.adminService.inserirGerente(this.gerente)
-      window.location.replace('/admin')
     }
   }
 
