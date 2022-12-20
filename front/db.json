@@ -112,22 +112,6 @@
     },
     {
       "numeroClientes": 0,
-      "id": 2,
-      "nome": "Gerente teste",
-      "email": "gerente@ge.com",
-      "cpf": "783.262.550-33",
-      "telefone": "321321312312"
-    },
-    {
-      "numeroClientes": 0,
-      "id": 3,
-      "nome": "g5",
-      "email": "dsad@dsadas.com",
-      "cpf": "580.190.530-85",
-      "telefone": "321321312312"
-    },
-    {
-      "numeroClientes": 0,
       "id": 4,
       "nome": "aaaaaaa",
       "email": "whyip2016@gmail.com",
