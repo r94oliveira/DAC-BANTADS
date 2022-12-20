@@ -24,38 +24,12 @@ export class AdminService {
     private gerenteService: GerenteService
   ) { }
 
-  gerarNumeroClientes (gerentes: Gerente[]): number {
-    let totalContas = gerentes.reduce((partialSum, elem) => elem.numeroClientes! + partialSum, 0)
-
-    if (gerentes == null || gerentes.length == 0)
-      return 0
-
-    else if (totalContas == 1)
-      return 0
-
-    else {
-      let maxClientes = gerentes[0]
-
-      for (let i = 1; i < gerentes.length; i++) {
-        if (gerentes[i].numeroClientes! > maxClientes.numeroClientes!) {
-          maxClientes = gerentes[i]
-        }
-      }
-
-      maxClientes.numeroClientes! -= 1;
-
-      this.gerenteService.alterar(maxClientes)
-
-      return 1
-    }
-  }
-
   inserirGerente (gerente: Gerente): void {
     this.gerenteService.listarTodos().subscribe({
       next: data => {
         const gerentes = Object.values(data)
 
-        gerente.numeroClientes = this.gerarNumeroClientes(gerentes)
+        gerente.numeroClientes = 0
 
         let usuario: Usuario = {
           cargo: 'GERENTE',
