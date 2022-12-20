@@ -2,6 +2,7 @@ import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { GerenteDashDto } from '../dto/gerente-dash-dto';
 import { AdminService } from '../services/admin.service';
 import { Router } from '@angular/router';
+import { Gerente } from 'src/app/shared';
 
 @Component({
   selector: 'app-admin-dash',
@@ -26,8 +27,8 @@ export class AdminDashComponent implements OnInit {
     this.service.listarGerentes().subscribe(res => this.data = res)
 	}
 
-  removerPorId(id: number) {
-    this.service.removerGerenteId(id).subscribe(res => window.location.replace('/admin'))
+  removerGerente(gerente: Gerente) {
+    this.service.removerGerente(gerente)
   }
 
 }

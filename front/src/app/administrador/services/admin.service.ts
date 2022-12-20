@@ -7,7 +7,7 @@ import { ClienteService } from 'src/app/cliente';
 import { ClienteDashDto } from '../dto/cliente-dash-dto';
 import { ContaService } from 'src/app/conta/services/conta.service';
 import { GerenteService } from 'src/app/gerente/services';
-import { of } from 'rxjs';
+import { of, take } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +15,7 @@ import { of } from 'rxjs';
 export class AdminService {
 
   private gerenteHost: string = 'http://localhost:3000/gerentes';
+  private userHost: string = 'http://localhost:3000/users';
 
   constructor(
     private http: HttpClient,
@@ -84,8 +85,19 @@ export class AdminService {
 
   }
 
-  removerGerenteId (id: number): Observable<any> {
-    return this.http.delete(`${this.gerenteHost}/${id}`)
+  removerGerente (gerente: Gerente): void {
+    const { id, email } = gerente
+
+    this.http.delete(`${this.gerenteHost}/${id}`).subscribe(data => {
+      this.http.get<Usuario[]>(this.userHost).subscribe(users => {
+        const user = users.find(user => user.cargo === 'GERENTE' && user.email === email)
+        if (user) {
+          this.http.delete(`${this.userHost}/${user.id}`).subscribe(() => {
+            window.location.replace('/admin')
+          })
+        }
+      })
+    })
   }
 
   listarGerentes (): Observable<GerenteDashDto[]> {
