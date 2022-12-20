@@ -7,6 +7,7 @@ import { ContaService } from 'src/app/conta/services/conta.service';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ModalMessageComponent } from '../modal-message/modal-message.component';
+import { TransferenciaService } from '../transferencia';
 
 @Component({
   selector: 'app-depositar',
@@ -24,6 +25,7 @@ export class DepositarComponent implements OnInit {
     private clienteService: ClienteService,
     private loginService: LoginService,
     private contaService: ContaService,
+    private transferenciaService: TransferenciaService,
     private router: Router,
     private modalService: NgbModal
   ) { }
@@ -64,11 +66,18 @@ export class DepositarComponent implements OnInit {
     // Verifica se o formulário é válido
     if (this.formDepositar.form.valid) {
       // cod depositar
-      this.contaService.buscarPorIdCliente(this.cliente.id).subscribe((conta) => {
-        conta = this.tratarRespostaSubscribe(conta);
-        conta.saldo += Number(this.transacao.valorTransacao)
-        this.contaService.alterar(conta).subscribe((res) => res);
-      })
+      this.conta.saldo += Number(this.transacao.valorTransacao);
+      this.contaService.alterar(this.conta).subscribe((res) => res);
+
+      this.transacao.idCliente = this.cliente.id;
+      this.transacao.tipoTransacao = "Depósito";
+      this.transacao.saldo = this.conta.saldo;
+      this.transacao.data = new Date().getTime();
+      this.transacao.idClienteDestinatario = this.cliente.id;
+      this.transacao.color = 'table-info'
+      
+      this.transferenciaService.inserir(this.transacao).subscribe((res) => res);
+
       this.abrirModal();
       //this.router.navigate(['/cliente/home']);
     } else {

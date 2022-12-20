@@ -4,26 +4,21 @@
 
     <form #formExtrato="ngForm">
       <div class="form-group d-flex justify-content-evenly">
+
         <div class="container">
           <label for="dataInicial">Data inicial da consulta: </label>
-          <input type="text" class="form-control" id="dataInicial" name="dataInicial" minlength="2" required> 
-         <!--
-          <input type="text" class="form-control" id="dataInicial" name="dataInicial" [(ngModel)]="cliente.dataInicial" #nome="ngModel" minlength="2" required> 
-          
-          <div *ngIf="dataInicial.errors && (dataInicial.dirty || dataInicial.touched)" class="alert alert-danger">
-            <div [hidden]="!dataInicial.errors['required']">Digite o nome.</div>
-            <div [hidden]="dataIniciale.errors['minlenght']">
-              O nome deve conter ao menos 2 caracteres.
-            </div>
-          </div>-->
+          <input type="text" class="form-control" id="dataInicial" name="dataInicial" minlength="2" required>
         </div>
+
         <div class="container">
-          <label for="dataInicial">Data final da consulta: </label>
-          <input type="text" class="form-control" id="dataInicial" name="dataInicial" minlength="2" required> 
+          <label for="dataFinal">Data final da consulta: </label>
+          <input type="text" class="form-control" id="dataFinal" name="dataFinal" minlength="2" required>
         </div>
+
         <button type="button" class="btn btn-primary" (click)="gerarExtrato()" [disabled]="!formExtrato.form.valid">
           Buscar
         </button>
+
       </div>
     </form>
 
@@ -31,36 +26,43 @@
       <thead>
         <th>Data/Hora</th>
         <th>Operação</th>
-        <th>Cliente origem/destino</th>
+        <th>Cliente de Origem</th>
+        <th>Cliente de Destino</th>
         <th>Valor</th>
         <th>Saldo Consolidado</th>
-        <tr class="table-danger">
-          <td>12:34:87 12/12/2022</td>
-          <td>Saque</td>
-          <td>Letícia Lima</td>
-          <td>R$200,00</td>
-          <td>R$550.200,50</td>
-        </tr>
-        <tr class="table-info">
-          <td>12:34:87 12/12/2022</td>
-          <td>Depósito</td>
-          <td>Letícia Lima</td>
-          <td>R$2000,00</td>
-          <td>R$552.200,50</td>
-        </tr>
-        <tr class="table-danger">
-          <td>12:34:87 12/12/2022</td>
-          <td>Transferência</td>
-          <td>Katiana Zeitz</td>
-          <td>R$100,00</td>
-          <td>R$552.100,50</td>
-        </tr>
-        <tr class="table-danger">
-          <td>12:34:87 12/12/2022</td>
-          <td>Saque</td>
-          <td>Letícia</td>
-          <td>R$1000,00</td>
-          <td>R$551.000,50</td>
+        
+        <tr *ngFor="let transacao of transacoes">
+          <div *ngIf="transacao.tipoTransacao === 'Transferência'; then thenBlock else elseBlock"></div>
+          <ng-template #thenBlock>
+            <div *ngIf="transacao.idCliente == cliente.id; then thenBlock else elseBlock"></div>
+            
+            <ng-template #thenBlock>
+              <td class="table-danger">{{ transacao.data }}</td>
+              <td class="table-danger">{{ transacao.tipoTransacao }}</td>
+              <td class="table-danger">{{ transacao.idCliente }}</td>
+              <td class="table-danger">{{ transacao.idClienteDestinatario }}</td>
+              <td class="table-danger">{{ transacao.valorTransacao }}</td>
+              <td class="table-danger">{{ transacao.saldo }}</td>
+            </ng-template>
+            
+            <ng-template #elseBlock>
+              <td class="table-info">{{ transacao.data }}</td>
+              <td class="table-info">{{ transacao.tipoTransacao }}</td>
+              <td class="table-info">{{ transacao.idCliente }}</td>
+              <td class="table-info">{{ transacao.idClienteDestinatario }}</td>
+              <td class="table-info">{{ transacao.valorTransacao }}</td>
+              <td class="table-info">{{ transacao.saldo }}</td>
+            </ng-template>
+          </ng-template>
+
+          <ng-template #elseBlock>
+            <td class="{{ transacao.color }}">{{ transacao.data }}</td>
+            <td class="{{ transacao.color }}">{{ transacao.tipoTransacao }}</td>
+            <td class="{{ transacao.color }}">{{ transacao.idCliente }}</td>
+            <td class="{{ transacao.color }}">{{ transacao.idClienteDestinatario }}</td>
+            <td class="{{ transacao.color }}">{{ transacao.valorTransacao }}</td>
+            <td class="{{ transacao.color }}">{{ transacao.saldo }}</td>
+          </ng-template>
         </tr>
       </thead>
     </table>

@@ -7,6 +7,7 @@ import { ModalMessageErroComponent } from '../modal-message-erro/modal-message-e
 import { LoginService } from 'src/app/auth/services/login.service';
 import { ContaService } from 'src/app/conta/services/conta.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { TransferenciaService } from './services/transferencia.service';
 
 @Component({
   selector: 'app-transferencia',
@@ -24,6 +25,7 @@ export class TransferenciaComponent implements OnInit {
    private clienteService: ClienteService,
     private loginService: LoginService,
     private contaService: ContaService,
+    private transferenciaService: TransferenciaService,
     private modalService: NgbModal
   ) {}
 
@@ -68,7 +70,28 @@ export class TransferenciaComponent implements OnInit {
       if (diff >= 0) {
         this.conta.saldo -= Number(this.transacao.valorTransacao)
         this.contaService.alterar(this.conta).subscribe((res) => res)
-        this.transacao.tipoTransacao = "transferencia";
+
+        this.contaService.buscarPorId(this.transacao.idClienteDestinatario).subscribe((contaDestino) => {
+          contaDestino = this.tratarRespostaSubscribe(contaDestino);
+          contaDestino.saldo += Number(this.transacao.valorTransacao)
+          this.contaService.alterar(contaDestino).subscribe((res) => res)
+        })
+
+        this.transacao.idCliente = this.cliente.id;
+        this.transacao.tipoTransacao = "Transferência";
+        this.transacao.saldo = this.conta.saldo;
+        this.transacao.data = new Date().getTime();
+        this.transacao.idClienteDestinatario = Number(this.transacao.idClienteDestinatario)
+
+        // a cor da transferência depende de qual cliente tá vendo a tabela
+        // se o cliente de origem da transferência tá vendo a tabela
+        // significa que aquela transferência saiu do bolso do coitado
+        // logo fica vermelho, mas se ele não for o cliente de origem
+        // significa que ele recebeu uma transferência, logo fica azul
+        this.transacao.color = ""
+        
+        this.transferenciaService.inserir(this.transacao).subscribe((res) => res);
+
         this.abrirModalSucesso();
       }
       else{
