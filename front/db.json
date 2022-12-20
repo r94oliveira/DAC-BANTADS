@@ -27,6 +27,27 @@
       "senha": "123",
       "cargo": "ADMIN",
       "id": 4
+    },
+    {
+      "id": 5,
+      "nome": "gerente-teste",
+      "email": "gerente@ge.com",
+      "senha": "teste",
+      "cargo": "GERENTE"
+    },
+    {
+      "nome": "Katiana",
+      "email": "kat",
+      "senha": "1671541477690",
+      "cargo": "CLIENTE",
+      "id": 6
+    },
+    {
+      "nome": "Katiana",
+      "email": "kat",
+      "senha": "1671551083118",
+      "cargo": "CLIENTE",
+      "id": 7
     }
   ],
   "clientes": [
@@ -78,7 +99,7 @@
       "dataCriacao": "2022-12-11T20:04:11.339Z",
       "limite": 1500,
       "ativo": true,
-      "saldo": 50,
+      "saldo": 294,
       "idGerente": 1,
       "id": 1
     },
@@ -86,8 +107,8 @@
       "idCliente": 2,
       "dataCriacao": "2022-12-11T20:49:00.580Z",
       "limite": 1500,
-      "ativo": false,
-      "saldo": 100,
+      "ativo": true,
+      "saldo": 280,
       "idGerente": 1,
       "id": 2
     },
@@ -97,7 +118,7 @@
       "limite": 2500,
       "ativo": true,
       "saldo": 23392.09,
-      "idGerente": 1,
+      "idGerente": 3,
       "id": 3
     }
   ],
@@ -109,6 +130,22 @@
       "cpf": "14578985647",
       "telefone": "41987456258",
       "numeroClientes": 1
+    },
+    {
+      "numeroClientes": 0,
+      "id": 2,
+      "nome": "gerente-teste",
+      "email": "gerente@ge.com",
+      "cpf": "783.262.550-33",
+      "telefone": "321321312312"
+    },
+    {
+      "numeroClientes": 0,
+      "id": 3,
+      "nome": "g5",
+      "email": "dsad@dsadas.com",
+      "cpf": "580.190.530-85",
+      "telefone": "321321312312"
     },
     {
       "numeroClientes": 0,
@@ -133,6 +170,88 @@
       "email": "whyip2016@gmail.com",
       "cpf": "580.190.530-85",
       "telefone": "41988326860"
+    }
+  ],
+  "transacoes": [
+    {
+      "data": 1671553988407,
+      "valorTransacao": 200,
+      "idCliente": 1,
+      "tipoTransacao": "Depósito",
+      "idClienteDestinatario": 1,
+      "saldo": 312,
+      "color": "table-info",
+      "id": 1
+    },
+    {
+      "data": 1671554006722,
+      "valorTransacao": 50,
+      "idCliente": 1,
+      "tipoTransacao": "Depósito",
+      "idClienteDestinatario": 1,
+      "saldo": 362,
+      "color": "table-info",
+      "id": 2
+    },
+    {
+      "data": 1671554013862,
+      "valorTransacao": 12,
+      "idCliente": 1,
+      "tipoTransacao": "Saque",
+      "idClienteDestinatario": 1,
+      "saldo": 350,
+      "color": "table-danger",
+      "id": 3
+    },
+    {
+      "data": 1671554024463,
+      "valorTransacao": 22,
+      "idCliente": 1,
+      "tipoTransacao": "Saque",
+      "idClienteDestinatario": 1,
+      "saldo": 328,
+      "color": "table-danger",
+      "id": 4
+    },
+    {
+      "data": 1671554030760,
+      "valorTransacao": 64,
+      "idCliente": 1,
+      "tipoTransacao": "Saque",
+      "idClienteDestinatario": 1,
+      "saldo": 264,
+      "color": "table-danger",
+      "id": 5
+    },
+    {
+      "data": 1671554038864,
+      "valorTransacao": 200,
+      "idCliente": 1,
+      "tipoTransacao": "Depósito",
+      "idClienteDestinatario": 1,
+      "saldo": 464,
+      "color": "table-info",
+      "id": 6
+    },
+    {
+      "data": 1671554047555,
+      "valorTransacao": 120,
+      "idCliente": 1,
+      "tipoTransacao": "Transferência",
+      "idClienteDestinatario": 2,
+      "saldo": 344,
+      "color": "",
+      "id": 7
+    },
+    {
+      "data": 1671554054868,
+      "valorTransacao": 50,
+      "idCliente": 1,
+      "tipoTransacao": "Transferência",
+      "idClienteDestinatario": 2,
+      "saldo": 294,
+      "color": "",
+      "id": 8
     }
   ]
 }

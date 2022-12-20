@@ -7,6 +7,7 @@ import { ClienteService } from '../services/cliente.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ModalMessageComponent } from '../modal-message/modal-message.component';
 import { ModalMessageErroComponent } from '../modal-message-erro/modal-message-erro.component';
+import { TransferenciaService } from '../transferencia/services/transferencia.service';
 
 @Component({
   selector: 'app-saque',
@@ -24,6 +25,7 @@ export class SaqueComponent implements OnInit {
     private clienteService: ClienteService,
     private loginService: LoginService,
     private contaService: ContaService,
+    private transferenciaService: TransferenciaService,
     private modalService: NgbModal
   ) { }
 
@@ -69,6 +71,16 @@ export class SaqueComponent implements OnInit {
       if (diff >= 0 ) {
         this.conta.saldo -= Number(this.transacao.valorTransacao)
         this.contaService.alterar(this.conta).subscribe((res) => res)
+
+        this.transacao.idCliente = this.cliente.id;
+        this.transacao.tipoTransacao = "Saque";
+        this.transacao.saldo = this.conta.saldo;
+        this.transacao.data = new Date().getTime();
+        this.transacao.idClienteDestinatario = this.cliente.id;
+        this.transacao.color = 'table-danger'
+        
+        this.transferenciaService.inserir(this.transacao).subscribe((res) => res);
+
         this.abrirModalSucesso();
       }
       else{

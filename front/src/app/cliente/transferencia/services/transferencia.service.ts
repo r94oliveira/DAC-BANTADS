@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { take, tap } from 'rxjs';
 import { Transacao } from 'src/app/shared';
 
 const LS_CHAVE: string = 'transacoes';
@@ -7,14 +9,15 @@ const LS_CHAVE: string = 'transacoes';
   providedIn: 'root',
 })
 export class TransferenciaService {
-  constructor() {}
+  private url: string = 'http://localhost:3000/transacoes';
 
-  mostrarSaldo(): Transacao[] {
-    const transacoes = localStorage[LS_CHAVE];
-    return transacoes ? JSON.parse(transacoes.valorTransacao) : [];
+  constructor(private http: HttpClient) {}
+
+  listarTodos() {
+    return this.http.get<Transacao[]>(this.url).pipe(tap(res=>res));
   }
-  
-  transferir(valor: Transacao['valorTransacao']): void {
-    //fazer o metodo transferir verificando se saldo disponível é maior ou igual ao valor de transferencia
+
+  inserir(transacao: Transacao) {
+    return this.http.post(this.url, transacao).pipe(take(1));
   }
 }

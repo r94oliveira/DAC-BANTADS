@@ -49,7 +49,7 @@ export class ContaService {
       .pipe(take(1));
   }
 
-  buscarPorIdConta(id: number | undefined) {
+  buscarPorId(id: number | undefined) {
     return this.http.get<Conta>(`${this.url}?id=${id}`).pipe(take(1));
   }
   
