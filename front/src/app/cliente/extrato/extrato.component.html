@@ -41,8 +41,8 @@
               <td class="table-danger">{{ transacao.tipoTransacao }}</td>
               <td class="table-danger">{{ transacao.idCliente }}</td>
               <td class="table-danger">{{ transacao.idClienteDestinatario }}</td>
-              <td class="table-danger">{{ transacao.valorTransacao }}</td>
-              <td class="table-danger">{{ transacao.saldo }}</td>
+              <td class="table-danger">{{ transacao.valorTransacao | currency  }}</td>
+              <td class="table-danger">{{ transacao.saldo | currency  }}</td>
             </ng-template>
             
             <ng-template #elseBlock>
@@ -50,8 +50,8 @@
               <td class="table-info">{{ transacao.tipoTransacao }}</td>
               <td class="table-info">{{ transacao.idCliente }}</td>
               <td class="table-info">{{ transacao.idClienteDestinatario }}</td>
-              <td class="table-info">{{ transacao.valorTransacao }}</td>
-              <td class="table-info">{{ transacao.saldo }}</td>
+              <td class="table-info">{{ transacao.valorTransacao | currency  }}</td>
+              <td class="table-info">{{ transacao.saldo | currency  }}</td>
             </ng-template>
           </ng-template>
 
@@ -60,8 +60,8 @@
             <td class="{{ transacao.color }}">{{ transacao.tipoTransacao }}</td>
             <td class="{{ transacao.color }}">{{ transacao.idCliente }}</td>
             <td class="{{ transacao.color }}">{{ transacao.idClienteDestinatario }}</td>
-            <td class="{{ transacao.color }}">{{ transacao.valorTransacao }}</td>
-            <td class="{{ transacao.color }}">{{ transacao.saldo }}</td>
+            <td class="{{ transacao.color }}">{{ transacao.valorTransacao | currency  }}</td>
+            <td class="{{ transacao.color }}">{{ transacao.saldo | currency  }}</td>
           </ng-template>
         </tr>
       </thead>
