@@ -96,7 +96,8 @@ export class ListarTodosComponent implements OnInit {
           return a;
         });
 
-        this.contaService.buscarPorIdGerente(gerente.id).subscribe((contas) => {
+        this.contaService.buscarPorIdGerenteTodos(gerente.id).subscribe((contas) => {
+          console.log(contas)
           contas.map((conta) => {
             this.clienteService
               .buscarPorId(conta.idCliente)

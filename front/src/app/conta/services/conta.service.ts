@@ -49,6 +49,12 @@ export class ContaService {
       .pipe(take(1));
   }
 
+  buscarPorIdGerenteTodos(id: number | undefined) {
+    return this.http
+      .get<Conta[]>(`${this.url}?idGerente=${id}`)
+      .pipe(take(1));
+  }
+
   buscarPorId(id: number | undefined) {
     return this.http.get<Conta>(`${this.url}?id=${id}`).pipe(take(1));
   }
