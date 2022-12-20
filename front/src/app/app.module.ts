@@ -8,6 +8,8 @@ import { ClienteModule } from './cliente/cliente.module';
 import { GerenteModule } from './gerente/gerente.module';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { AdministradorModule } from './administrador/administrador.module';
 import { AuthModule } from './auth/auth.module';
 import { SharedModule } from './shared';
 import { NgxMaskModule, IConfig } from 'ngx-mask'
@@ -34,6 +36,7 @@ registerLocaleData(localePt, 'pt');
     AppRoutingModule,
     BrowserAnimationsModule,
     ClienteModule,
+    AdministradorModule,
     GerenteModule,
     NgbModule,
     NgSelectModule,
@@ -50,7 +53,7 @@ registerLocaleData(localePt, 'pt');
       useValue: 'pt'
   },
 
-  /* if you don't provide the currency symbol in the pipe, 
+  /* if you don't provide the currency symbol in the pipe,
   this is going to be the default symbol (R$) ... */
   {
       provide:  DEFAULT_CURRENCY_CODE,

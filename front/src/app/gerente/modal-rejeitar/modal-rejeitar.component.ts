@@ -30,7 +30,7 @@ export class ModalRejeitarComponent implements OnInit {
       });
 
       this.gerenteService.buscarPorId(res.idGerente).subscribe((res) => {
-        res.numeroClientes--;
+        res.numeroClientes!--;
         this.gerenteService.alterar(res).subscribe((res) => res);
       });
 

@@ -13,9 +13,9 @@ import { LoginService } from './services/login.service';
   providedIn: 'root',
 })
 export class AuthGuard implements CanActivate {
-  constructor(private loginService: LoginService, private router: Router) {}
+  constructor(private loginService: LoginService, private router: Router) { }
 
-  canActivate(
+  canActivate (
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ):
@@ -23,6 +23,7 @@ export class AuthGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
+
     const usuarioLogado = this.loginService.usuarioLogado;
     let url = state.url;
 

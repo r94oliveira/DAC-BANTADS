@@ -64,7 +64,7 @@ export class HomeComponent implements OnInit {
         this.contaService.alterar(res).subscribe((res) => res);
 
         this.gerenteService.buscarPorId(res.idGerente).subscribe((res) => {
-          res.numeroClientes--;
+          res.numeroClientes!--;
           this.gerenteService.alterar(res).subscribe((res) => res);
         });
       });

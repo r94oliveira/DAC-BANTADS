@@ -30,7 +30,7 @@ export class ContaService {
       this.inserir(conta).subscribe((res) => res);
 
       // atualiza o numero de clientes do gerente
-      res.numeroClientes++;
+      res.numeroClientes!++;
       this.gerenteService.alterar(res).subscribe((res) => res);
     });
   }
